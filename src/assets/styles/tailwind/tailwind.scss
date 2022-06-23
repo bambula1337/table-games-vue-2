@@ -11,3 +11,20 @@ body {
     }
   }
 }
+
+@font-face {
+  font-family: "TrebuchetMS";
+  src: url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS.eot");
+  src: url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS.woff") format("woff"),
+    url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TrebuchetMS";
+  src: url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS-Bold.eot");
+  src: url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS-Bold.woff") format("woff"),
+    url("@/assets/fonts/Trebuchet\ MS/TrebuchetMS-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
