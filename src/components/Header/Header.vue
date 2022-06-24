@@ -4,48 +4,51 @@
       <div
         class="mobile-menu-opener-wrapper"
         :class="{ 'mobile-opened': isMobileMenuOpened }"
+        @click="isMobileMenuOpened = !isMobileMenuOpened"
       >
         <span class="opener"></span>
       </div>
-      <div class="mobile-menu">
-        <div class="categories" ref="categories">
-          <details
-            id="category"
-            v-for="category in categories"
-            :key="category.id"
-          >
-            <summary class="category-summary" @click.prevent="categoryOpener">
-              <p class="summary-text">{{ category.name }}</p>
-              <div class="arrow">
-                <svg
-                  width="8"
-                  height="14"
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      <transition name="menu">
+        <div class="mobile-menu" v-if="isMobileMenuOpened">
+          <div class="categories" ref="categories">
+            <details
+              id="category"
+              v-for="category in categories"
+              :key="category.id"
+            >
+              <summary class="category-summary" @click.prevent="categoryOpener">
+                <p class="summary-text">{{ category.name }}</p>
+                <div class="arrow">
+                  <svg
+                    width="8"
+                    height="14"
+                    viewBox="0 0 8 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="#2A2A2A" />
+                  </svg>
+                </div>
+              </summary>
+              <div class="sub-categories">
+                <div
+                  class="sub-category"
+                  v-for="subCategory in category.subCategories"
+                  :key="subCategory.id"
                 >
-                  <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="#2A2A2A" />
-                </svg>
+                  {{ subCategory.name }}
+                </div>
               </div>
-            </summary>
-            <div class="sub-categories">
-              <div
-                class="sub-category"
-                v-for="subCategory in category.subCategories"
-                :key="subCategory.id"
-              >
-                {{ subCategory.name }}
-              </div>
-            </div>
-          </details>
+            </details>
+          </div>
+          <div class="links-wrapper">
+            <p class="link">Мероприятия</p>
+            <p class="link">Блог</p>
+            <p class="link">О центре</p>
+            <p class="link">Контакты</p>
+          </div>
         </div>
-        <div class="links-wrapper">
-          <p class="link">Мероприятия</p>
-          <p class="link">Блог</p>
-          <p class="link">О центре</p>
-          <p class="link">Контакты</p>
-        </div>
-      </div>
+      </transition>
       <div class="search-wrapper"></div>
       <div class="number-wrapper"></div>
       <div class="logo-wrapper">
@@ -110,7 +113,10 @@
       </div>
     </div>
     <div class="catalog-for-pc"></div>
-    <div class="overlay"></div>
+    <div
+      class="overlay"
+      :class="{ 'menu-opened-for-overlay': isMobileMenuOpened }"
+    ></div>
   </div>
 </template>
 
@@ -583,20 +589,20 @@ export default {
     & .mobile-menu-opener-wrapper {
       @apply absolute;
       &::before {
-        @apply absolute w-full bg-white;
+        @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         width: 16px;
         transform: translateY(-5px);
       }
       & .opener {
-        @apply absolute w-full bg-white;
+        @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         width: 16px;
       }
       &::after {
-        @apply absolute w-full bg-white;
+        @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         width: 16px;
@@ -648,6 +654,15 @@ export default {
           content: "";
         }
         & .link {
+          @apply flex flex-col-reverse justify-start cursor-pointer;
+
+          &::after {
+            @apply absolute w-0 h-0.5 bg-black transition-all duration-300;
+            content: "";
+          }
+          &:hover::after {
+            @apply w-%15;
+          }
         }
       }
     }
@@ -693,10 +708,35 @@ export default {
   & .catalog-for-pc {
   }
   & .overlay {
-    @apply fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-30;
+    @apply fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-0 transition-all duration-300;
   }
 }
 
+//For Mobile Menu
 .mobile-opened {
+  &::before {
+    @apply rounded-full;
+    background-color: rgba(249, 164, 63) !important;
+    transform: rotate(45deg) !important;
+  }
+  & .opener {
+    transform: scale(0);
+  }
+  &::after {
+    @apply rounded-full;
+    background-color: rgba(249, 164, 63) !important;
+    transform: rotate(-45deg) !important;
+  }
+}
+.menu-opened-for-overlay {
+  --tw-bg-opacity: 0.3 !important;
+}
+.menu-enter,
+.menu-leave-to {
+  transform: translateX(-100%);
+}
+.menu-enter-active,
+.menu-leave-active {
+  @apply transition-all duration-300;
 }
 </style>
