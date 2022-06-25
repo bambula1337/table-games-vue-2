@@ -34,6 +34,7 @@ module.exports = {
       "project-black": "#2A2A2A",
       "project-gray": "#C4C4C4",
       "project-orange": "#F9A43F",
+      "project-orange-dark": "#FB791B",
       "project-creamy": "#2A2A2A0A",
     },
     spacing: {
@@ -97,7 +98,7 @@ module.exports = {
       92: "23rem",
       94: "23.5rem",
       96: "24rem",
-      98: "25rem",
+      100: "25rem",
       104: "26rem",
       108: "27rem",
       112: "28rem",

@@ -1,18 +1,27 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <div class="wrapper-default wrapper-home-slider">
+      <HomeSlider />
+    </div>
+  </div>
 </template>
 
 <script>
+import HomeSlider from "@/components/HomeSlider/HomeSlider.vue";
+
 export default {
   name: "HomeView",
+  components: {
+    HomeSlider,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .home {
-  @apply h-340;
-  & p {
-    @apply text-red-900;
+  & .wrapper-default {
+  }
+  & .wrapper-home-slider {
   }
 }
 </style>

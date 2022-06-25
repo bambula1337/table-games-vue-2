@@ -610,7 +610,7 @@ export default {
       }
     }
     & .mobile-menu {
-      @apply w-67 h-128 absolute top-19 left-0 bg-white py-7 overflow-y-scroll z-10;
+      @apply w-67 h-128 absolute top-19 left-0 bg-white pt-5 pb-7 overflow-y-scroll z-10;
 
       & .categories {
         @apply flex flex-col justify-between mb-12;
@@ -686,7 +686,7 @@ export default {
           @apply absolute right-4 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
           width: 10px;
           height: 10px;
-          font-size: 6px;
+          font-size: 8px;
           content: "1";
         }
       }
