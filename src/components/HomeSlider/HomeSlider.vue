@@ -11,7 +11,9 @@
           <p class="main-text">{{ slide.mainText }}</p>
           <p class="sub-text">{{ slide.subText }}</p>
         </div>
-        <button class="route">Подробнее</button>
+        <button-orange-default>
+          <p class="detail">Подробнее</p>
+        </button-orange-default>
       </div>
     </VueSlickCarousel>
   </div>
@@ -94,8 +96,8 @@ export default {
           @apply text-sm;
         }
       }
-      & .route {
-        @apply w-34 h-8 text-sm font-bold bg-gradient-to-t from-project-orange-dark to-project-orange rounded-lg;
+      & .detail {
+        @apply flex justify-center items-center h-8;
       }
     }
   }

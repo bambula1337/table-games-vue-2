@@ -4,7 +4,7 @@
       <div
         class="mobile-menu-opener-wrapper"
         :class="{ 'mobile-opened': isMobileMenuOpened }"
-        @click="isMobileMenuOpened = !isMobileMenuOpened"
+        @click="mobileMenuOpener"
       >
         <span class="opener"></span>
       </div>
@@ -577,6 +577,13 @@ export default {
         category.open = true;
       }
     },
+    mobileMenuOpener: function () {
+      window.scrollTo(0, 0);
+      this.isMobileMenuOpened = !this.isMobileMenuOpened;
+      this.isMobileMenuOpened
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "visible");
+    },
   },
 };
 </script>
@@ -585,28 +592,31 @@ export default {
 .header {
   @apply flex flex-col font-trebuchet font-bold;
   & .header-main {
-    @apply flex justify-between items-center w-full h-19 bg-project-black px-5 z-10;
+    @apply flex justify-between items-center w-full h-19 bg-project-black px-5 z-20;
     & .mobile-menu-opener-wrapper {
-      @apply absolute;
+      @apply absolute cursor-pointer;
+      width: 18px;
+      height: 16px;
       &::before {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 16px;
-        transform: translateY(-5px);
+        width: 18px;
+        transform: translateY(1px);
       }
       & .opener {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 16px;
+        width: 18px;
+        transform: translateY(6.5px);
       }
       &::after {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 16px;
-        transform: translateY(5px);
+        width: 18px;
+        transform: translateY(12px);
       }
     }
     & .mobile-menu {
@@ -626,6 +636,13 @@ export default {
               }
             }
           }
+          &:not([open]) {
+            & .category-summary:hover {
+              & .arrow {
+                @apply LS:opacity-70;
+              }
+            }
+          }
           & .category-summary {
             @apply w-full flex items-center px-8 h-11 transition-colors duration-300;
             &::before {
@@ -633,35 +650,52 @@ export default {
               content: "";
             }
             & .summary-text {
-              @apply z-10;
+              @apply flex flex-col cursor-pointer items-start z-10 select-none;
+              &::after {
+                @apply w-0 transition-all duration-300;
+                content: "";
+                border-top: 2px black solid;
+              }
+              &:hover {
+                &::after {
+                  @apply LS:w-%25;
+                }
+              }
             }
             & .arrow {
-              @apply absolute right-8 mt-1 opacity-30 transition-opacity duration-300;
+              @apply absolute right-8 mt-1 opacity-30 transition-opacity duration-300 cursor-pointer;
             }
           }
           & .sub-categories {
-            @apply my-5 ml-12;
+            @apply my-5 ml-12 cursor-pointer;
             & .sub-category {
-              @apply mb-3;
+              @apply mb-3 transition-all duration-300 select-none;
+
+              &:hover {
+                @apply opacity-60;
+              }
             }
           }
         }
       }
       & .links-wrapper {
-        @apply w-full h-36 flex flex-col justify-between px-8;
+        @apply h-36 flex flex-col justify-between px-8;
         &::before {
           @apply w-full h-0.5 absolute -ml-8 -mt-8 bg-project-gray;
           content: "";
         }
         & .link {
-          @apply flex flex-col-reverse justify-start cursor-pointer;
+          @apply flex flex-col cursor-pointer self-start items-start select-none;
 
           &::after {
-            @apply absolute w-0 h-0.5 bg-black transition-all duration-300;
+            @apply w-0 transition-all duration-300;
             content: "";
+            border-top: 2px black solid;
           }
-          &:hover::after {
-            @apply w-%15;
+          &:hover {
+            &::after {
+              @apply LS:w-1/2;
+            }
           }
         }
       }
@@ -679,15 +713,22 @@ export default {
     & .icons-wrapper {
       @apply flex justify-between w-14 -mt-0.5;
       & .user-icon-wrapper {
-        @apply -mt-0.5;
+        @apply -mt-0.5 transition-opacity duration-300 cursor-pointer;
+        &:hover {
+          @apply LS:opacity-70;
+        }
       }
       & .basket-icon-wrapper {
+        @apply transition-opacity duration-300 cursor-pointer;
         &::before {
           @apply absolute right-4 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
           width: 10px;
           height: 10px;
           font-size: 8px;
           content: "1";
+        }
+        &:hover {
+          @apply LS:opacity-70;
         }
       }
     }
@@ -696,19 +737,19 @@ export default {
     @apply flex justify-center items-center w-full h-14 bg-project-creamy px-5;
 
     & .search-input {
-      @apply w-full px-3 outline-none;
+      @apply w-full px-3 pr-9 outline-none z-10;
       border-radius: 9px;
       height: 38px;
       border: 1px solid #f2f2f2;
     }
     & .search-icon-wrapper {
-      @apply absolute right-8;
+      @apply absolute right-8  z-10;
     }
   }
   & .catalog-for-pc {
   }
   & .overlay {
-    @apply fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-0 transition-all duration-300;
+    @apply fixed top-0 left-full w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
   }
 }
 
@@ -717,19 +758,20 @@ export default {
   &::before {
     @apply rounded-full;
     background-color: rgba(249, 164, 63) !important;
-    transform: rotate(45deg) !important;
+    transform: translateY(6.5px) rotate(45deg) !important;
   }
   & .opener {
-    transform: scale(0);
+    transform: translateY(6.5px) scale(0) !important;
   }
   &::after {
     @apply rounded-full;
     background-color: rgba(249, 164, 63) !important;
-    transform: rotate(-45deg) !important;
+    transform: translateY(6.5px) rotate(-45deg) !important;
   }
 }
 .menu-opened-for-overlay {
-  --tw-bg-opacity: 0.3 !important;
+  transform: translateX(-100%);
+  opacity: 0.3 !important;
 }
 .menu-enter,
 .menu-leave-to {
