@@ -1,7 +1,8 @@
 <template>
-  <div class="slide">
+  <div class="card">
     <div class="main-img-wrapper">
-      <img class="main-img" :src="srcFixer(slide.img.url)" alt="" />
+      <img class="main-img" :src="srcFixer(card.img.url)" alt="" />
+      <p class="sale" v-if="sale">-{{ sale }}</p>
     </div>
     <div class="limits-wrapper">
       <div class="players">
@@ -36,7 +37,7 @@
             </defs>
           </svg>
         </div>
-        <p class="text">{{ slide.limits.players }}</p>
+        <p class="text">{{ card.limits.players }}</p>
       </div>
       <div class="time">
         <div class="icon">
@@ -53,21 +54,21 @@
             />
           </svg>
         </div>
-        <p class="text">{{ slide.limits.time }}</p>
+        <p class="text">{{ card.limits.time }}</p>
       </div>
       <div class="age">
         <div class="icon"></div>
-        <p class="text">{{ slide.limits.age }}</p>
+        <p class="text">{{ card.limits.age }}</p>
       </div>
     </div>
     <div class="name-wrapper">
       <p class="name">
-        {{ slide.name }}
+        {{ card.name }}
       </p>
     </div>
     <div class="price-wrapper">
-      <p class="old" v-if="slide.price.old">{{ slide.price.old }} ₽</p>
-      <p class="new">{{ slide.price.new }} ₽</p>
+      <p class="old" v-if="card.price.old">{{ card.price.old }} ₽</p>
+      <p class="new">{{ card.price.new }} ₽</p>
     </div>
     <div class="buttons-wrapper">
       <button-orange-default>
@@ -103,20 +104,48 @@
 <script>
 export default {
   name: "CardComponent",
+  props: {
+    card: Object,
+  },
+  methods: {
+    srcFixer: function (src) {
+      return require(`@/assets/${src}`);
+    },
+  },
+  computed: {
+    sale: function () {
+      let sale = String;
+      if (
+        this.card.price.old &&
+        this.card.price.old != 0 &&
+        this.card.price.old > this.card.price.new
+      ) {
+        sale =
+          Math.round(100 - (this.card.price.new / this.card.price.old) * 100) +
+          "%";
+      } else {
+        sale = false;
+      }
+      return sale;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.slide {
+.card {
   @apply h-100 flex-col items-center bg-white my-10 px-11 pt-7;
   box-shadow: 5px 6px 16px rgba(42, 42, 42, 0.16);
   border-radius: 9px;
   width: 225px !important;
   display: flex !important;
   & .main-img-wrapper {
-    @apply w-38;
+    @apply w-38 relative;
     & .main-img {
       @apply w-full h-full;
+    }
+    & .sale {
+      @apply absolute -top-3 -right-5 text-white font-sans font-medium bg-project-orange py-0.5 px-3 rounded-full;
     }
   }
   & .limits-wrapper {
@@ -150,9 +179,9 @@ export default {
     }
   }
   & .price-wrapper {
-    @apply w-full flex justify-between my-2;
+    @apply w-full flex justify-center my-2;
     & .old {
-      @apply relative text-lg;
+      @apply relative text-lg mr-2;
 
       &::after {
         @apply absolute w-full h-0.5 bg-black;
