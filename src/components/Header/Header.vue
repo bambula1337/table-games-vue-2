@@ -592,7 +592,7 @@ export default {
 .header {
   @apply flex flex-col font-trebuchet font-bold;
   & .header-main {
-    @apply flex justify-between items-center w-full h-19 bg-project-black px-5 z-20;
+    @apply flex justify-between items-center w-full h-18 bg-project-black px-5 z-20;
     & .mobile-menu-opener-wrapper {
       @apply absolute cursor-pointer;
       width: 18px;
@@ -620,7 +620,7 @@ export default {
       }
     }
     & .mobile-menu {
-      @apply w-67 h-128 absolute top-19 left-0 bg-white pt-5 pb-7 overflow-y-scroll z-10;
+      @apply w-67 h-128 absolute top-18 left-0 bg-white pt-5 pb-7 overflow-y-scroll z-10;
 
       & .categories {
         @apply flex flex-col justify-between mb-12;
