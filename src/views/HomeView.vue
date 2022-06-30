@@ -13,13 +13,18 @@
     >
       <SpecialComponent :mainText="slider.text" :slides="slider.slides" />
     </div>
+    <div class="wrapper-default wrapper-show">
+      <ShowComponent :cards="cards" />
+    </div>
   </div>
 </template>
 
 <script>
+//Components
 import HomeSlider from "@/components/HomeSlider/HomeSlider.vue";
 import CatalogMain from "@/components/CatalogMain/CatalogMain.vue";
 import SpecialComponent from "@/components/Special/Special.vue";
+import ShowComponent from "@/components/Show/Show.vue";
 
 export default {
   name: "HomeView",
@@ -27,6 +32,7 @@ export default {
     HomeSlider,
     CatalogMain,
     SpecialComponent,
+    ShowComponent,
   },
   data() {
     return {
@@ -180,6 +186,30 @@ export default {
           ],
         },
       ],
+      cards: [
+        {
+          id: 1,
+          name: "Halloween c GoldFish",
+          img: "",
+          time: "31 октября 2021 г. 19:00",
+          description:
+            "Мы соберемся,чтобы узнать,кто же все-таки был Мафией и что будет с тем,кого убили..",
+          style: {
+            background: `url(${require("@/assets/images/show/card_1.jpg")})`,
+          },
+        },
+        {
+          id: 2,
+          name: "Halloween c GoldFish",
+          img: "",
+          time: "31 октября 2021 г. 19:00",
+          description:
+            "Мы соберемся,чтобы узнать,кто же все-таки был Мафией и что будет с тем,кого убили..",
+          style: {
+            background: `url(${require("@/assets/images/show/card_1.jpg")})`,
+          },
+        },
+      ],
     };
   },
 };
@@ -198,6 +228,8 @@ export default {
   }
   & .wrapper-special {
     @apply -mb-2;
+  }
+  & .wrapper-show {
   }
 }
 </style>
