@@ -3,9 +3,12 @@
 Figma Design - https://www.figma.com/file/PYP6IRMfVWnGg4IMZGIoWG/GoldFish-(Copy)-(Copy)
 My Twitter - https://twitter.com/admsDev
 
-#About Project
+
+
+## About Project
 So, In this project I use tailwind scss, vue-2, vue-router, vue-mask, vue-slick-carousel and other things.
 If you want to talk to me you can do it by twitter - https://twitter.com/admsDev
+
 
 
 ## Project setup
