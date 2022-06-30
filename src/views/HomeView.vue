@@ -16,6 +16,12 @@
     <div class="wrapper-default wrapper-show">
       <ShowComponent :cards="cards" />
     </div>
+    <div class="wrapper-default wrapper-interesting">
+      <InterestingComponent :interesting="interesting" />
+    </div>
+    <div class="wrapper-default wrapper-about">
+      <AboutComponent />
+    </div>
   </div>
 </template>
 
@@ -25,6 +31,8 @@ import HomeSlider from "@/components/HomeSlider/HomeSlider.vue";
 import CatalogMain from "@/components/CatalogMain/CatalogMain.vue";
 import SpecialComponent from "@/components/Special/Special.vue";
 import ShowComponent from "@/components/Show/Show.vue";
+import InterestingComponent from "@/components/Interesting/Interesting.vue";
+import AboutComponent from "@/components/About/About.vue";
 
 export default {
   name: "HomeView",
@@ -33,6 +41,8 @@ export default {
     CatalogMain,
     SpecialComponent,
     ShowComponent,
+    InterestingComponent,
+    AboutComponent,
   },
   data() {
     return {
@@ -210,6 +220,17 @@ export default {
           },
         },
       ],
+      interesting: {
+        text: {
+          main: "Интересная информация",
+          name: "Аэронавтика Империалис: введение в игру",
+          description: "Детально ознакомимся с правилами игры",
+        },
+        style: {
+          background: `url(${require("@/assets/images/interesting/interesting_1.jpg")})`,
+        },
+        url: "",
+      },
     };
   },
 };
@@ -230,6 +251,12 @@ export default {
     @apply -mb-2;
   }
   & .wrapper-show {
+    @apply mb-10;
+  }
+  & .wrapper-interesting {
+    @apply mb-8;
+  }
+  & .wrapper-about {
   }
 }
 </style>

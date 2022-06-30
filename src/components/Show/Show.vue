@@ -73,7 +73,7 @@ export default {
       background-size: 23rem !important;
       background-repeat: no-repeat !important;
       & .text-wrapper {
-        @apply w-72 h-30 bg-project-black bg-opacity-80 pl-2.5;
+        @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2;
         border-radius: 0 0 9px 9px;
         & .top-content {
           @apply flex justify-between flex-wrap mb-1.5;
@@ -95,7 +95,6 @@ export default {
   }
   & .button-text {
     @apply flex justify-center items-center font-bold text-white;
-    width: 170px;
     height: 37px;
   }
 }
