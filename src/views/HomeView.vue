@@ -22,6 +22,9 @@
     <div class="wrapper-default wrapper-about">
       <AboutComponent />
     </div>
+    <div class="wrapper-default wrapper-contact">
+      <ContactComponent />
+    </div>
   </div>
 </template>
 
@@ -33,6 +36,7 @@ import SpecialComponent from "@/components/Special/Special.vue";
 import ShowComponent from "@/components/Show/Show.vue";
 import InterestingComponent from "@/components/Interesting/Interesting.vue";
 import AboutComponent from "@/components/About/About.vue";
+import ContactComponent from "@/components/Contact/Contact.vue";
 
 export default {
   name: "HomeView",
@@ -43,6 +47,7 @@ export default {
     ShowComponent,
     InterestingComponent,
     AboutComponent,
+    ContactComponent,
   },
   data() {
     return {
@@ -257,6 +262,8 @@ export default {
     @apply mb-8;
   }
   & .wrapper-about {
+  }
+  & .wrapper-contact {
   }
 }
 </style>
