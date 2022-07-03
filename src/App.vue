@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -11,11 +12,13 @@ import "@/assets/styles/tailwind/tailwind.scss";
 
 //Components
 import Header from "@/components/Header/Header.vue";
+import Footer from "@/components/Footer/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    Footer,
   },
 };
 </script>
