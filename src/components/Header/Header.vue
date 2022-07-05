@@ -49,16 +49,50 @@
           </div>
         </div>
       </transition>
-      <div class="search-wrapper"></div>
-      <div class="number-wrapper"></div>
       <div class="logo-wrapper">
         <img src="@/assets/images/global/l3 1.svg" alt="" class="logo" />
+      </div>
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Найти игру" />
+        <div class="search-icon-wrapper">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.4998 17.4993L13.7615 13.7543L17.4998 17.4993ZM15.8332 8.74935C15.8332 10.628 15.0869 12.4296 13.7585 13.758C12.4301 15.0864 10.6285 15.8327 8.74984 15.8327C6.87122 15.8327 5.06955 15.0864 3.74116 13.758C2.41278 12.4296 1.6665 10.628 1.6665 8.74935C1.6665 6.87073 2.41278 5.06906 3.74116 3.74068C5.06955 2.41229 6.87122 1.66602 8.74984 1.66602C10.6285 1.66602 12.4301 2.41229 13.7585 3.74068C15.0869 5.06906 15.8332 6.87073 15.8332 8.74935V8.74935Z"
+              stroke="#2A2A2A"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="number-wrapper">
+        <div class="icon">
+          <svg
+            width="currentWidth"
+            height="currentHeight"
+            viewBox="0 0 28 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.25 16.875C17.5 18.5625 17.5 20.25 15.75 20.25C14 20.25 12.25 18.5625 10.5 16.875C8.75 15.1875 7 13.5 7 11.8125C7 10.125 8.75 10.125 10.5 8.4375C12.25 6.75 7 1.6875 5.25 1.6875C3.5 1.6875 0 6.75 0 6.75C0 10.125 3.59625 16.9678 7 20.25C10.4038 23.5322 17.5 27 21 27C21 27 26.25 23.625 26.25 21.9375C26.25 20.25 21 15.1875 19.25 16.875Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <p class="number">+7 (495) 911-10-11</p>
       </div>
       <div class="icons-wrapper">
         <div class="user-icon-wrapper">
           <svg
-            width="20"
-            height="20"
+            width="currentWidth"
+            height="currentHeight"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +105,8 @@
         </div>
         <div class="basket-icon-wrapper">
           <svg
-            width="20"
-            height="18"
+            width="currentWidth"
+            height="currentHeight"
             viewBox="0 0 20 18"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -112,10 +146,83 @@
         </svg>
       </div>
     </div>
-    <div class="catalog-for-pc"></div>
+    <div class="catalog-for-pc">
+      <div class="catalog-main">
+        <div class="catalog-opener" @click="isMenuOpened = true">
+          <span class="opener"></span>
+        </div>
+        <div class="links-wrapper">
+          <p class="link" v-for="link in catalog.links" :key="link.id">
+            {{ link.name }}
+          </p>
+        </div>
+        <div class="icons-wrapper">
+          <div class="icon" v-for="icon in catalog.icons" :key="icon.id">
+            <img :src="srcFixer(icon.img.url)" alt="" class="icon-img" />
+          </div>
+        </div>
+      </div>
+      <transition name="category-menu">
+        <div class="catalog-menu" v-show="isMenuOpened">
+          <div class="catalog-menu-main">
+            <div class="left">
+              <div class="top">
+                <div class="catalog-closer" @click="isMenuOpened = false">
+                  <span class="closer"></span>
+                </div>
+                <p class="text">Все категории</p>
+              </div>
+              <div class="bottom">
+                <div
+                  class="category"
+                  :class="{
+                    'category-selected':
+                      category.subCategories == categoriesSelected,
+                  }"
+                  v-for="category in categories"
+                  :key="category.key"
+                  @click="subCategoryOpener(category.subCategories)"
+                >
+                  <p class="name">
+                    {{ category.name }}
+                  </p>
+                  <div class="arrow">
+                    <svg
+                      width="8"
+                      height="14"
+                      viewBox="0 0 8 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z"
+                        fill="#2A2A2A"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <transition-group name="categories-selected" class="right">
+              <p
+                class="sub-category"
+                v-for="subCategory in categoriesSelected"
+                :key="subCategory.id"
+              >
+                {{ subCategory.name }}({{ subCategory.number }})
+              </p>
+            </transition-group>
+          </div>
+        </div>
+      </transition>
+    </div>
     <div
       class="overlay"
       :class="{ 'menu-opened-for-overlay': isMobileMenuOpened }"
+    ></div>
+    <div
+      class="pc-overlay"
+      :class="{ 'category-opened-for-overlay': isMenuOpened }"
     ></div>
   </div>
 </template>
@@ -126,6 +233,7 @@ export default {
   data() {
     return {
       isMobileMenuOpened: false,
+      isMenuOpened: false,
       categories: [
         {
           id: 1,
@@ -136,56 +244,67 @@ export default {
               id: 1,
               name: "Альтернативные миниатюры",
               url: "",
+              number: 10,
             },
             {
               id: 2,
               name: "Warhammer 40k",
               url: "",
+              number: 10,
             },
             {
               id: 3,
               name: "Age of Sigmar",
               url: "",
+              number: 10,
             },
             {
               id: 4,
               name: "Warcry",
               url: "",
+              number: 10,
             },
             {
               id: 5,
               name: "Necromunda",
               url: "",
+              number: 10,
             },
             {
               id: 6,
               name: "Lord of the Rings",
               url: "",
+              number: 10,
             },
             {
               id: 7,
               name: "Blood Bowl",
               url: "",
+              number: 10,
             },
             {
               id: 8,
               name: "Titanicus",
               url: "",
+              number: 10,
             },
             {
               id: 9,
               name: "Warcry",
               url: "",
+              number: 10,
             },
             {
               id: 10,
               name: "Warhammer: Underworlds",
               url: "",
+              number: 10,
             },
             {
               id: 11,
               name: "Killtem",
               url: "",
+              number: 10,
             },
           ],
         },
@@ -562,6 +681,67 @@ export default {
           ],
         },
       ],
+      catalog: {
+        links: [
+          {
+            id: 1,
+            name: "Каталог",
+            url: "",
+          },
+          {
+            id: 2,
+            name: "Wharhammer",
+            url: "",
+          },
+          {
+            id: 3,
+            name: "Magic:the Cathering",
+            url: "",
+          },
+          {
+            id: 4,
+            name: "Мероприятия",
+            url: "",
+          },
+          {
+            id: 5,
+            name: "О центре",
+            url: "",
+          },
+          {
+            id: 6,
+            name: "Контакты",
+            url: "",
+          },
+        ],
+        icons: [
+          {
+            id: 1,
+            name: "instagram",
+            img: {
+              url: "images/social/instagram.svg",
+            },
+            url: "",
+          },
+          {
+            id: 2,
+            name: "vk",
+            img: {
+              url: "images/social/vk.svg",
+            },
+            url: "",
+          },
+          {
+            id: 3,
+            name: "facebook",
+            img: {
+              url: "images/social/facebook.svg",
+            },
+            url: "",
+          },
+        ],
+      },
+      categoriesSelected: [],
     };
   },
   methods: {
@@ -584,6 +764,12 @@ export default {
         ? (document.body.style.overflow = "hidden")
         : (document.body.style.overflow = "visible");
     },
+    srcFixer(src) {
+      return require(`@/assets/${src}`);
+    },
+    subCategoryOpener: function (subCategory) {
+      this.categoriesSelected = subCategory;
+    },
   },
 };
 </script>
@@ -593,29 +779,29 @@ export default {
   @apply flex flex-col font-trebuchet font-bold;
   & .header-main {
     @apply flex justify-between items-center w-full h-18 bg-project-black px-5 z-20;
+    @apply TM:justify-evenly;
+    @apply TS:z-10;
     & .mobile-menu-opener-wrapper {
-      @apply absolute cursor-pointer;
-      width: 18px;
+      @apply w-px-18 absolute cursor-pointer;
+      @apply TS:w-5;
+      @apply TM:hidden;
       height: 16px;
       &::before {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 18px;
         transform: translateY(1px);
       }
       & .opener {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 18px;
         transform: translateY(6.5px);
       }
       &::after {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
-        width: 18px;
         transform: translateY(12px);
       }
     }
@@ -701,27 +887,53 @@ export default {
       }
     }
     & .search-wrapper {
+      @apply w-%40 h-14 justify-center items-center hidden bg-project-creamy px-5 -ml-5 relative;
+      @apply TM:flex;
+
+      & .search-input {
+        @apply w-full px-3 pr-9 outline-none z-10;
+        border-radius: 9px;
+        height: 34px;
+        border: 1px solid #f2f2f2;
+      }
+      & .search-icon-wrapper {
+        @apply absolute right-8  z-10;
+      }
     }
     & .number-wrapper {
+      @apply hidden justify-between -ml-10;
+      @apply TM:flex;
+      & .icon {
+        @apply w-6 mr-2;
+      }
+      & .number {
+        @apply text-lg text-white font-bold;
+      }
     }
-    .logo-wrapper {
-      @apply w-30 -ml-%8;
+    & .logo-wrapper {
+      @apply w-30 ml-20;
+      @apply MM:w-full MM:flex MM:justify-center MM:ml-10;
+      @apply TM:w-30;
       & .logo {
-        @apply w-full;
+        @apply w-30;
+        @apply TS:w-32;
       }
     }
     & .icons-wrapper {
       @apply flex justify-between w-14 -mt-0.5;
       & .user-icon-wrapper {
-        @apply -mt-0.5 transition-opacity duration-300 cursor-pointer;
+        @apply w-5 -mt-0.5 transition-opacity duration-300 cursor-pointer;
+        @apply MM:-ml-5;
+        @apply TS:w-6;
         &:hover {
           @apply LS:opacity-70;
         }
       }
       & .basket-icon-wrapper {
-        @apply transition-opacity duration-300 cursor-pointer;
+        @apply w-5 transition-opacity duration-300 cursor-pointer relative;
+        @apply TS:w-6;
         &::before {
-          @apply absolute right-4 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
+          @apply absolute -right-0.5 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
           width: 10px;
           height: 10px;
           font-size: 8px;
@@ -734,7 +946,8 @@ export default {
     }
   }
   & .search-for-mobile {
-    @apply flex justify-center items-center w-full h-14 bg-project-creamy px-5;
+    @apply flex justify-center items-center w-full h-14 bg-project-creamy px-5 relative;
+    @apply TM:hidden;
 
     & .search-input {
       @apply w-full px-3 pr-9 outline-none z-10;
@@ -747,10 +960,155 @@ export default {
     }
   }
   & .catalog-for-pc {
+    @apply w-full h-13 hidden;
+    @apply TM:flex;
+    background: rgba(54, 54, 54, 0.04);
+
+    & .catalog-main {
+      @apply w-full flex justify-center items-center px-5 relative;
+      & .catalog-opener {
+        @apply w-4 hidden absolute cursor-pointer -mt-0.5;
+        margin-left: -57rem;
+        @apply TM:block;
+        height: 14px;
+        &::before {
+          @apply absolute w-full bg-black transition-all duration-300;
+          content: "";
+          height: 2px;
+          transform: translateY(1px);
+        }
+        & .opener {
+          @apply absolute w-full bg-black transition-all duration-300;
+          content: "";
+          height: 2px;
+          transform: translateY(6.5px);
+        }
+        &::after {
+          @apply absolute w-full bg-black transition-all duration-300;
+          content: "";
+          height: 2px;
+          transform: translateY(12px);
+        }
+      }
+      & .links-wrapper {
+        @apply flex ml-7;
+        & .link {
+          @apply mr-10;
+        }
+      }
+      & .icons-wrapper {
+        @apply w-24 flex justify-between items-center;
+        & .icon {
+          & .icon-img {
+          }
+        }
+      }
+    }
+    & .catalog-menu {
+      @apply w-full flex justify-center absolute left-0 text-black z-20;
+      top: 4.5rem;
+
+      & .catalog-menu-main {
+        @apply flex bg-white pt-2 font-bold;
+        & .left {
+          @apply mr-20;
+          border-right: 2px rgb(196, 196, 196) solid;
+          & .top {
+            @apply flex items-center justify-start pl-7;
+            height: 46px !important;
+            border-bottom: 2px rgb(196, 196, 196) solid;
+            & .catalog-closer {
+              @apply w-4 absolute cursor-pointer z-20 -mt-0.5;
+              @apply TM:block;
+              height: 14px;
+              &::before {
+                @apply absolute w-full bg-black transition-all duration-300 rounded-full;
+                content: "";
+                height: 2px;
+                transform: translateY(6.5px) rotate(45deg);
+              }
+              &::after {
+                @apply absolute w-full bg-black transition-all duration-300 rounded-full;
+                content: "";
+                height: 2px;
+                transform: translateY(6.5px) rotate(-45deg);
+              }
+            }
+            & .text {
+              @apply ml-7;
+            }
+          }
+          & .bottom {
+            @apply mb-11;
+            & .category {
+              @apply w-full flex items-center relative overflow-hidden;
+              &::before {
+                @apply w-full absolute right-full  bg-project-orange transition-transform duration-300;
+                content: "";
+                height: 46px;
+              }
+              & .name {
+                @apply w-full flex items-center pl-7 relative;
+                height: 46px;
+              }
+              & .arrow {
+                @apply -ml-5 opacity-30 transition-opacity duration-300 z-10;
+              }
+            }
+          }
+        }
+        & .right {
+          @apply flex flex-col flex-wrap mt-14 -ml-20 pr-14;
+          height: 250px;
+          width: 70vw;
+          & .sub-category {
+            @apply ml-10 mb-0;
+            flex: 0 1 40px;
+          }
+        }
+      }
+    }
   }
   & .overlay {
     @apply fixed top-0 left-full w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
   }
+  & .pc-overlay {
+    @apply fixed top-0 w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
+    transform: translateX(100%);
+  }
+}
+
+//Category
+.category-selected {
+  &::before {
+    transform: translateX(100%);
+  }
+  & .arrow {
+    opacity: 1 !important;
+  }
+}
+
+.categories-selected-enter-active,
+.categories-selected-leave-active {
+  transition: all 1s;
+}
+.categories-selected-enter,
+.categories-selected-leave-to {
+  opacity: 0;
+}
+
+.category-menu-enter-active,
+.category-menu-leave-active {
+  transition: all 1s;
+}
+.category-menu-enter,
+.category-menu-leave-to {
+  transform: translateY(-120%) !important;
+}
+
+.category-opened-for-overlay {
+  transform: translateX(0) !important;
+  opacity: 0.6 !important;
 }
 
 //For Mobile Menu
