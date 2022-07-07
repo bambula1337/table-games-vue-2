@@ -60,6 +60,7 @@ module.exports = {
       13: "3.25rem",
       14: "3.5rem",
       16: "4rem",
+      17: "4.25rem",
       18: "4.5rem",
       19: "4.725rem",
       20: "5rem",
@@ -163,6 +164,7 @@ module.exports = {
       "%190": "190%",
       "%200": "200%",
       "px-18": "18px",
+      "px-26": "26px",
     },
     animation: {
       none: "none",
