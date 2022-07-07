@@ -177,11 +177,13 @@
                   class="category"
                   :class="{
                     'category-selected':
-                      category.subCategories == categoriesSelected,
+                      category.subCategories == categoriesSelected.categories,
                   }"
                   v-for="category in categories"
                   :key="category.key"
-                  @click="subCategoryOpener(category.subCategories)"
+                  @click="
+                    subCategoryOpener(category.name, category.subCategories)
+                  "
                 >
                   <p class="name">
                     {{ category.name }}
@@ -203,10 +205,19 @@
                 </div>
               </div>
             </div>
+            <p
+              class="categories-selected-name"
+              :class="{
+                'categories-selected-name-is-selected':
+                  categoriesSelected.isSelected,
+              }"
+            >
+              {{ categoriesSelected.name }}
+            </p>
             <transition-group name="categories-selected" class="right">
               <p
                 class="sub-category"
-                v-for="subCategory in categoriesSelected"
+                v-for="subCategory in categoriesSelected.categories"
                 :key="subCategory.id"
               >
                 {{ subCategory.name }}({{ subCategory.number }})
@@ -741,7 +752,11 @@ export default {
           },
         ],
       },
-      categoriesSelected: [],
+      categoriesSelected: {
+        isSelected: false,
+        name: "",
+        categories: [],
+      },
     };
   },
   methods: {
@@ -767,8 +782,10 @@ export default {
     srcFixer(src) {
       return require(`@/assets/${src}`);
     },
-    subCategoryOpener: function (subCategory) {
-      this.categoriesSelected = subCategory;
+    subCategoryOpener: function (name, subCategory) {
+      this.categoriesSelected.isSelected = true;
+      this.categoriesSelected.name = name;
+      this.categoriesSelected.categories = subCategory;
     },
   },
 };
@@ -1043,7 +1060,7 @@ export default {
       top: 4.5rem;
 
       & .catalog-menu-main {
-        @apply flex bg-white pt-2 font-bold;
+        @apply flex bg-white pt-2 font-bold relative;
         & .left {
           @apply mr-20;
           border-right: 2px rgb(196, 196, 196) solid;
@@ -1075,8 +1092,7 @@ export default {
               }
             }
             & .text {
-              @apply ml-7;
-              @apply flex flex-col cursor-pointer items-start select-none;
+              @apply flex flex-col cursor-pointer items-start ml-7 select-none;
 
               &::after {
                 @apply w-0 transition-all duration-300;
@@ -1109,10 +1125,25 @@ export default {
             }
           }
         }
+        & .categories-selected-name {
+          @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 transition-all duration-700 cursor-pointer select-none;
+
+          &::after {
+            @apply w-0 transition-all duration-300;
+            content: "";
+            border-top: 2px black solid;
+          }
+          &:hover {
+            &::after {
+              @apply LS:w-%30;
+            }
+          }
+        }
         & .right {
-          @apply flex flex-col flex-wrap mt-14 -ml-20 pr-14;
+          @apply max-w-6xl flex flex-col flex-wrap mt-14 -ml-20 pr-14 pt-2;
           height: 250px;
           width: 70vw;
+          @apply TL:h-48;
           & .sub-category {
             @apply ml-10 mb-0 transition-opacity duration-300 cursor-pointer;
             flex: 0 1 40px;
@@ -1164,6 +1195,10 @@ export default {
 .category-opened-for-overlay {
   transform: translateX(0) !important;
   opacity: 0.6 !important;
+}
+
+.categories-selected-name-is-selected {
+  opacity: 1 !important;
 }
 
 //For Mobile Menu
