@@ -777,10 +777,17 @@ export default {
 <style lang="scss" scoped>
 .header {
   @apply flex flex-col font-trebuchet font-bold;
+  @apply TL:items-center;
   & .header-main {
     @apply flex justify-between items-center w-full h-18 bg-project-black px-5 z-20;
     @apply TM:justify-evenly;
     @apply TS:z-10;
+    @apply TL:max-w-6xl TL:justify-between;
+    &::before {
+      @apply w-full h-18 absolute left-0 top-0 bg-project-black;
+      z-index: -1;
+      content: "";
+    }
     & .mobile-menu-opener-wrapper {
       @apply w-px-18 absolute cursor-pointer;
       @apply TS:w-5;
@@ -889,6 +896,7 @@ export default {
     & .search-wrapper {
       @apply w-%40 h-14 justify-center items-center hidden bg-project-creamy px-5 -ml-5 relative;
       @apply TM:flex;
+      @apply TL:w-120;
 
       & .search-input {
         @apply w-full px-3 pr-9 outline-none z-10;
@@ -901,22 +909,31 @@ export default {
       }
     }
     & .number-wrapper {
-      @apply hidden justify-between -ml-10;
+      @apply hidden justify-between -ml-10 cursor-pointer transition-opacity duration-300;
       @apply TM:flex;
+      &:hover {
+        @apply opacity-70;
+      }
       & .icon {
         @apply w-6 mr-2;
+        @apply TL:w-px-26;
       }
       & .number {
         @apply text-lg text-white font-bold;
       }
     }
     & .logo-wrapper {
-      @apply w-30 ml-20;
+      @apply w-30 ml-20 cursor-pointer transition-opacity duration-300;
       @apply MM:w-full MM:flex MM:justify-center MM:ml-10;
       @apply TM:w-30;
+      @apply TL:w-38;
+      &:hover {
+        @apply opacity-70;
+      }
       & .logo {
         @apply w-30;
         @apply TS:w-32;
+        @apply TL:w-40;
       }
     }
     & .icons-wrapper {
@@ -925,6 +942,7 @@ export default {
         @apply w-5 -mt-0.5 transition-opacity duration-300 cursor-pointer;
         @apply MM:-ml-5;
         @apply TS:w-6;
+        @apply TL:w-7;
         &:hover {
           @apply LS:opacity-70;
         }
@@ -932,12 +950,16 @@ export default {
       & .basket-icon-wrapper {
         @apply w-5 transition-opacity duration-300 cursor-pointer relative;
         @apply TS:w-6;
+        @apply TL:w-7;
         &::before {
           @apply absolute -right-0.5 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
           width: 10px;
           height: 10px;
           font-size: 8px;
           content: "1";
+          @media (min-width: 1280px) {
+            @apply w-3 h-3 -right-1;
+          }
         }
         &:hover {
           @apply LS:opacity-70;
@@ -962,14 +984,17 @@ export default {
   & .catalog-for-pc {
     @apply w-full h-13 hidden;
     @apply TM:flex;
+    @apply TL:justify-center;
     background: rgba(54, 54, 54, 0.04);
 
     & .catalog-main {
       @apply w-full flex justify-center items-center px-5 relative;
+      @apply TL:max-w-6xl TL:justify-between TL:pl-14;
       & .catalog-opener {
         @apply w-4 hidden absolute cursor-pointer -mt-0.5;
         margin-left: -57rem;
         @apply TM:block;
+        @apply TL:ml-0;
         height: 14px;
         &::before {
           @apply absolute w-full bg-black transition-all duration-300;
@@ -991,15 +1016,24 @@ export default {
         }
       }
       & .links-wrapper {
-        @apply flex ml-7;
+        @apply flex self-center ml-7;
         & .link {
-          @apply mr-10;
+          @apply mr-10 cursor-pointer transition-opacity duration-300;
+          @apply TL:mr-17;
+          &:hover {
+            @apply opacity-50;
+          }
         }
       }
       & .icons-wrapper {
         @apply w-24 flex justify-between items-center;
+        @apply TL:absolute TL:right-5;
         & .icon {
           & .icon-img {
+            @apply cursor-pointer transition-opacity duration-300;
+            &:hover {
+              @apply opacity-70;
+            }
           }
         }
       }
@@ -1018,7 +1052,7 @@ export default {
             height: 46px !important;
             border-bottom: 2px rgb(196, 196, 196) solid;
             & .catalog-closer {
-              @apply w-4 absolute cursor-pointer z-20 -mt-0.5;
+              @apply w-4 absolute cursor-pointer z-20 -mt-1;
               @apply TM:block;
               height: 14px;
               &::before {
@@ -1033,9 +1067,27 @@ export default {
                 height: 2px;
                 transform: translateY(6.5px) rotate(-45deg);
               }
+              &:hover {
+                &::before,
+                &::after {
+                  @apply bg-project-orange;
+                }
+              }
             }
             & .text {
               @apply ml-7;
+              @apply flex flex-col cursor-pointer items-start select-none;
+
+              &::after {
+                @apply w-0 transition-all duration-300;
+                content: "";
+                border-top: 2px black solid;
+              }
+              &:hover {
+                &::after {
+                  @apply LS:w-%30;
+                }
+              }
             }
           }
           & .bottom {
@@ -1048,7 +1100,7 @@ export default {
                 height: 46px;
               }
               & .name {
-                @apply w-full flex items-center pl-7 relative;
+                @apply w-full flex flex-col justify-center items-start select-none pl-7 relative;
                 height: 46px;
               }
               & .arrow {
@@ -1062,8 +1114,11 @@ export default {
           height: 250px;
           width: 70vw;
           & .sub-category {
-            @apply ml-10 mb-0;
+            @apply ml-10 mb-0 transition-opacity duration-300 cursor-pointer;
             flex: 0 1 40px;
+            &:hover {
+              @apply opacity-50;
+            }
           }
         }
       }
