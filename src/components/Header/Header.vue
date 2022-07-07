@@ -1159,7 +1159,8 @@ export default {
     @apply fixed top-0 left-full w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
   }
   & .pc-overlay {
-    @apply fixed top-0 w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
+    @apply fixed top-0 h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
+    width: 100vw;
     transform: translateX(100%);
   }
 }
