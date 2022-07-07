@@ -798,7 +798,7 @@ export default {
   & .header-main {
     @apply flex justify-between items-center w-full h-18 bg-project-black px-5 z-20;
     @apply TM:justify-evenly;
-    @apply TS:z-10;
+    @apply TM:z-10;
     @apply TL:max-w-6xl TL:justify-between;
     &::before {
       @apply w-full h-18 absolute left-0 top-0 bg-project-black;
