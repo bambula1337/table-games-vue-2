@@ -89,14 +89,14 @@ export default {
 .catalog {
   @apply w-full px-5 font-trebuchet;
   @apply TM:max-w-6xl;
-  @apply TL:px-0;
+  @apply TL:px-5;
 
   & .main-text {
     @apply font-bold mb-2;
     font-size: 21px;
     @apply TS:text-3xl;
     @apply TM:mb-4;
-    @apply TL:ml-3;
+    @apply TL:ml-0;
   }
   & .categories {
     @apply flex flex-col items-center;
@@ -149,7 +149,7 @@ export default {
         @apply ML:w-60 ML:h-36;
         @apply TS:w-72 TS:h-40;
         @apply TM:w-60 TM:h-36 TM:ml-4;
-        @apply TL:w-72 TL:h-40;
+        @apply TL:w-70 TL:h-40;
         @media (min-width: 480px) {
           background-position: 0rem 0rem !important;
         }

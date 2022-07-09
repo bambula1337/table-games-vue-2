@@ -942,7 +942,7 @@ export default {
     & .logo-wrapper {
       @apply w-30 ml-20 cursor-pointer transition-opacity duration-300;
       @apply MM:w-full MM:flex MM:justify-center MM:ml-10;
-      @apply TM:w-30;
+      @apply TM:w-30 TM:ml-0;
       @apply TL:w-38;
       &:hover {
         @apply opacity-70;
@@ -1006,7 +1006,7 @@ export default {
 
     & .catalog-main {
       @apply w-full flex justify-center items-center px-5 relative;
-      @apply TL:max-w-6xl TL:justify-between TL:pl-14;
+      @apply TL:max-w-6xl TL:justify-between TL:px-5;
       & .catalog-opener {
         @apply w-4 hidden absolute cursor-pointer -mt-0.5;
         margin-left: -57rem;
