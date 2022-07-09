@@ -71,7 +71,7 @@ export default {
         centerMode: true,
         responsive: [
           {
-            breakpoint: 1024,
+            breakpoint: 1023,
             settings: {
               variableWidth: false,
               centerMode: false,

@@ -124,6 +124,23 @@ export default {
                 new: 3657,
               },
             },
+            {
+              id: 5,
+              mainUrl: "",
+              name: "Warhammer 40,000: Chaos Space Marines",
+              img: {
+                url: "images/special/slide_1.png",
+              },
+              limits: {
+                players: "2-4",
+                time: "30-60",
+                age: "18+",
+              },
+              price: {
+                old: 4350,
+                new: 3657,
+              },
+            },
           ],
         },
         {
@@ -183,6 +200,23 @@ export default {
             },
             {
               id: 4,
+              mainUrl: "",
+              name: "Warhammer 40,000: Chaos Space Marines",
+              img: {
+                url: "images/special/slide_1.png",
+              },
+              limits: {
+                players: "2-4",
+                time: "30-60",
+                age: "18+",
+              },
+              price: {
+                old: 4350,
+                new: 3657,
+              },
+            },
+            {
+              id: 5,
               mainUrl: "",
               name: "Warhammer 40,000: Chaos Space Marines",
               img: {

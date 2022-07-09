@@ -1,35 +1,37 @@
 <template>
-  <div class="show">
-    <div class="main-text-wrapper">
-      <p class="main-text">Ближайшие мероприятия</p>
-    </div>
-    <div class="cards">
-      <div
-        class="card"
-        v-for="card in cards"
-        :key="card.id"
-        :style="card.style"
-      >
-        <div class="text-wrapper">
-          <div class="top-content">
-            <p class="name">
-              {{ card.name }}
-            </p>
-            <p class="time">
-              {{ card.time }}
-            </p>
-          </div>
-          <div class="bottom-content">
-            <p class="sub-text">
-              {{ card.description }}
-            </p>
+  <div class="show-wrapper">
+    <div class="show">
+      <div class="main-text-wrapper">
+        <p class="main-text">Ближайшие мероприятия</p>
+      </div>
+      <div class="cards">
+        <div
+          class="card"
+          v-for="card in cards"
+          :key="card.id"
+          :style="card.style"
+        >
+          <div class="text-wrapper">
+            <div class="top-content">
+              <p class="name">
+                {{ card.name }}
+              </p>
+              <p class="time">
+                {{ card.time }}
+              </p>
+            </div>
+            <div class="bottom-content">
+              <p class="sub-text">
+                {{ card.description }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
+      <button-orange-default class="button">
+        <p class="button-text">Показать еще</p>
+      </button-orange-default>
     </div>
-    <button-orange-default>
-      <p class="button-text">Показать еще</p>
-    </button-orange-default>
   </div>
 </template>
 
@@ -51,19 +53,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.show-wrapper {
+  @apply w-full flex justify-center;
+}
 .show {
-  @apply flex flex-col justify-center items-center font-trebuchet;
+  @apply flex flex-col justify-center items-center font-trebuchet bg-red-500;
+  @apply w-full TL:max-w-6xl;
   & .main-text-wrapper {
     @apply self-start ml-5 mb-3.5;
     & .main-text {
       @apply font-bold;
       font-size: 21px;
+      @apply TS:text-3xl;
     }
   }
   & .cards {
     @apply flex self-stretch overflow-scroll mb-4;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
+    @apply ML:justify-center;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -72,9 +80,16 @@ export default {
       border-radius: 9px;
       background-size: 23rem !important;
       background-repeat: no-repeat !important;
+      @apply TM:h-80;
+      @media (min-width: 1024px) {
+        background-size: 30rem !important;
+      }
       & .text-wrapper {
         @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2;
         border-radius: 0 0 9px 9px;
+        @apply MM:w-76;
+        @apply TS:w-88;
+        @apply TM:w-116;
         & .top-content {
           @apply flex justify-between flex-wrap mb-1.5;
           & .name {
@@ -93,9 +108,13 @@ export default {
       }
     }
   }
+  & .button {
+    @apply TM:w-60 TM:h-14;
+  }
   & .button-text {
     @apply flex justify-center items-center font-bold text-white;
     height: 37px;
+    @apply TM:text-lg;
   }
 }
 </style>
