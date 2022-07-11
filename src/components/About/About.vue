@@ -53,6 +53,7 @@ export default {
     @apply self-start font-bold mb-4;
     font-size: 21px;
     @apply TS:text-3xl;
+    @apply TL:mb-7;
   }
   & .right {
     @apply TM:w-full TM:flex TM:flex-row-reverse;
@@ -61,7 +62,7 @@ export default {
       @apply MM:w-80;
       @apply ML:w-88;
       @apply TM:w-220 TM:h-%80;
-      @apply TL:w-260 TL:h-full TL:-mt-11;
+      @apply TL:w-260 TL:h-%105 TL:-mt-14;
 
       border-radius: 9px;
     }

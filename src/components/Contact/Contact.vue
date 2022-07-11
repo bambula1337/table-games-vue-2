@@ -1,25 +1,32 @@
 <template>
-  <div class="contact">
-    <div class="main-text-wrapper">
-      <p class="main-text">Контакты</p>
-    </div>
-    <div class="contacts" v-for="contact in contacts" :key="contact.id">
-      <div class="contact">
-        <div class="logo-wrapper">
-          <img :src="srcFixer(contact.logo)" alt="" class="logo" />
+  <div class="contact-wrapper">
+    <div class="contact">
+      <div class="left">
+        <div class="main-text-wrapper">
+          <p class="main-text">Контакты</p>
         </div>
-        <div class="text">
-          <p class="main">
-            {{ contact.text.main }}
-          </p>
-          <p class="sub">
-            {{ contact.text.sub }}
-          </p>
+        <div class="contacts" v-for="contact in contacts" :key="contact.id">
+          <div class="contact">
+            <div class="logo-wrapper">
+              <img :src="srcFixer(contact.logo)" alt="" class="logo" />
+            </div>
+            <div class="text">
+              <p class="main">
+                {{ contact.text.main }}
+              </p>
+              <p class="sub">
+                {{ contact.text.sub }}
+              </p>
+            </div>
+          </div>
         </div>
+        <div class="map"></div>
+        <FormComponent />
+      </div>
+      <div class="right">
+        <div class="map map-pc"></div>
       </div>
     </div>
-    <div class="map"></div>
-    <FormComponent />
   </div>
 </template>
 
@@ -78,13 +85,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contact-wrapper {
+  @apply flex justify-center;
+}
 .contact {
-  @apply font-trebuchet;
+  @apply w-full font-trebuchet;
+  @apply TM:flex TM:items-center TM:justify-between;
+  @apply TL:max-w-6xl;
+  & .left {
+    @apply TM:w-116;
+  }
   & .main-text-wrapper {
     @apply px-5 mb-4;
     & .main-text {
       @apply font-bold;
       font-size: 21px;
+      @apply TS:text-3xl;
     }
   }
   & .contacts {
@@ -109,6 +125,15 @@ export default {
     @apply w-full h-60 bg-no-repeat;
     background: url("@/assets/images/contact/map.jpg");
     background-position: -6.5rem 0rem;
+    @apply TM:hidden;
+  }
+  & .map-pc {
+    @apply hidden w-136;
+    @apply TM:block;
+    height: 629px;
+    background-size: 70rem;
+    background-position: -15rem 5rem;
+    border-radius: 9px;
   }
 }
 </style>

@@ -78,7 +78,7 @@ export default {
       display: none;
     }
     & .card {
-      @apply flex justify-center items-end h-64 bg-no-repeat mx-2;
+      @apply h-64 flex justify-center items-end relative bg-no-repeat mx-2 cursor-pointer;
       border-radius: 9px;
       background-size: 23rem !important;
       background-repeat: no-repeat !important;
@@ -93,8 +93,16 @@ export default {
           @apply TL:mr-2;
         }
       }
+      &::before {
+        @apply w-full h-full absolute bg-black opacity-0 transition-all duration-300;
+        content: "";
+        border-radius: 9px;
+      }
+      &:hover::before {
+        @apply opacity-20;
+      }
       & .text-wrapper {
-        @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2;
+        @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2 z-10;
         border-radius: 0 0 9px 9px;
         @apply MM:w-76;
         @apply TS:w-88;

@@ -72,7 +72,7 @@ export default {
     @apply w-full flex justify-evenly flex-wrap;
     @apply TL:justify-between;
     & .card {
-      @apply w-72 h-84 flex justify-center items-end mb-3.5;
+      @apply w-72 h-84 flex justify-center items-end relative mb-3.5;
       background-position: -14rem 0rem !important;
       background-repeat: no-repeat !important;
       border-radius: 9px;
@@ -86,12 +86,24 @@ export default {
         background-size: 210% !important;
         background-position: -20rem 0rem !important;
       }
+      &::before {
+        @apply w-full h-full absolute bg-black opacity-0 transition-all duration-300;
+        content: "";
+      }
+      &:hover {
+        &::before {
+          @apply opacity-20;
+        }
+        & .text-wrapper .name {
+          @apply text-project-orange;
+        }
+      }
       & .text-wrapper {
-        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pb-4 pt-2;
+        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pb-4 pt-2 z-10;
         border-radius: 0 0 9px 9px;
         @apply TM:pr-1;
         & .name {
-          @apply font-bold;
+          @apply font-bold transition-all duration-300;
           @apply TS:mb-2;
         }
         & .description {

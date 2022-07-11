@@ -313,20 +313,27 @@ export default {
     @apply mb-5;
   }
   & .wrapper-home-slider {
+    @apply TM:mb-8;
   }
   & .wrapper-catalog {
     @apply mb-7;
+    @apply TM:mb-20;
   }
   & .wrapper-special {
     @apply -mb-2;
+    @apply TM:mb-1;
   }
   & .wrapper-show {
-    @apply mb-10;
+    @apply mt-2 mb-10;
+    @apply TM:mb-20;
   }
   & .wrapper-interesting {
     @apply mb-8;
+    @apply TM:mb-20;
   }
   & .wrapper-about {
+    @apply mb-8;
+    @apply TM:mb-20;
   }
   & .wrapper-contact {
   }

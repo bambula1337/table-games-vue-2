@@ -24,7 +24,7 @@
         maxlength="200"
       ></textarea>
     </div>
-    <button-orange-default>
+    <button-orange-default class="button">
       <p class="button-text">Заказать звонок</p>
     </button-orange-default>
     <p class="bottom-text">
@@ -94,9 +94,12 @@ export default {
       }
     }
   }
-  & .button-text {
-    @apply flex justify-center items-center text-white font-bold;
-    height: 37px;
+  & .button {
+    @apply TM:w-full;
+    & .button-text {
+      @apply flex justify-center items-center text-white font-bold;
+      height: 37px;
+    }
   }
   & .bottom-text {
     @apply text-sm mt-4;
