@@ -57,10 +57,12 @@ export default {
   @apply w-full flex justify-center;
 }
 .show {
-  @apply flex flex-col justify-center items-center font-trebuchet bg-red-500;
-  @apply w-full TL:max-w-6xl;
+  @apply flex flex-col justify-center items-center font-trebuchet;
+  @apply w-full;
+  @apply TL:max-w-6xl TL:px-5;
   & .main-text-wrapper {
     @apply self-start ml-5 mb-3.5;
+    @apply TL:ml-0;
     & .main-text {
       @apply font-bold;
       font-size: 21px;
@@ -81,8 +83,15 @@ export default {
       background-size: 23rem !important;
       background-repeat: no-repeat !important;
       @apply TM:h-80;
+      @apply TL:h-90 TL:mr-5 TL:ml-0;
       @media (min-width: 1024px) {
         background-size: 30rem !important;
+      }
+      @media (min-width: 1280px) {
+        background-size: 100% !important;
+        &:last-child {
+          @apply TL:mr-2;
+        }
       }
       & .text-wrapper {
         @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2;
@@ -90,6 +99,7 @@ export default {
         @apply MM:w-76;
         @apply TS:w-88;
         @apply TM:w-116;
+        @apply TL:w-full;
         & .top-content {
           @apply flex justify-between flex-wrap mb-1.5;
           & .name {
@@ -109,12 +119,12 @@ export default {
     }
   }
   & .button {
-    @apply TM:w-60 TM:h-14;
+    @apply TM:w-60 TM:mt-3;
   }
   & .button-text {
     @apply flex justify-center items-center font-bold text-white;
     height: 37px;
-    @apply TM:text-lg;
+    @apply TM:text-lg TM:h-14;
   }
 }
 </style>

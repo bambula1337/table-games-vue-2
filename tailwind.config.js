@@ -212,8 +212,9 @@ module.exports = {
       "right-top": "right top",
       top: "top",
     },
-    backgroundSize: {
+    backgroundSize: (theme) => ({
       auto: "auto",
+      ...theme("spacing"),
       cover: "cover",
       contain: "contain",
       none: "0px",
@@ -224,7 +225,7 @@ module.exports = {
       "70rem": "70rem",
       "80rem": "80rem",
       "90rem": "90rem",
-    },
+    }),
     blur: {
       0: "0",
       none: "0",

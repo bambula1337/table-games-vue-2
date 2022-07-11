@@ -17,7 +17,10 @@
       <ShowComponent :cards="cards" />
     </div>
     <div class="wrapper-default wrapper-interesting">
-      <InterestingComponent :interesting="interesting" />
+      <InterestingComponent
+        :interesting="interesting.interestingMain"
+        :other-interesting="interesting.otherInteresting"
+      />
     </div>
     <div class="wrapper-default wrapper-about">
       <AboutComponent />
@@ -260,15 +263,43 @@ export default {
         },
       ],
       interesting: {
-        text: {
-          main: "Интересная информация",
-          name: "Аэронавтика Империалис: введение в игру",
-          description: "Детально ознакомимся с правилами игры",
+        interestingMain: {
+          text: {
+            main: "Интересная информация",
+            name: "Аэронавтика Империалис: введение в игру",
+            description: "Детально ознакомимся с правилами игры",
+          },
+          style: {
+            background: `url(${require("@/assets/images/interesting/interesting_1.jpg")})`,
+          },
+          url: "",
         },
-        style: {
-          background: `url(${require("@/assets/images/interesting/interesting_1.jpg")})`,
-        },
-        url: "",
+        otherInteresting: [
+          {
+            id: 1,
+            text: {
+              main: "Интересная информация",
+              name: "Аэронавтика Империалис: введение в игру",
+              description: "Детально ознакомимся с правилами игры",
+            },
+            style: {
+              background: `url(${require("@/assets/images/interesting/interesting_1.jpg")})`,
+            },
+            url: "",
+          },
+          {
+            id: 2,
+            text: {
+              main: "Интересная информация",
+              name: "Аэронавтика Империалис: введение в игру",
+              description: "Детально ознакомимся с правилами игры",
+            },
+            style: {
+              background: `url(${require("@/assets/images/interesting/interesting_1.jpg")})`,
+            },
+            url: "",
+          },
+        ],
       },
     };
   },
