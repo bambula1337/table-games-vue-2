@@ -69,7 +69,7 @@ export default {
     @apply TS:text-3xl;
   }
   & .cards {
-    @apply w-full flex justify-evenly flex-wrap;
+    @apply w-full flex justify-evenly flex-wrap cursor-pointer;
     @apply TL:justify-between;
     & .card {
       @apply w-72 h-84 flex justify-center items-end relative mb-3.5;

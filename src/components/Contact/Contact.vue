@@ -90,10 +90,10 @@ export default {
 }
 .contact {
   @apply w-full font-trebuchet;
-  @apply TM:flex TM:items-center TM:justify-between;
-  @apply TL:max-w-6xl;
+  @apply TS:flex TS:items-center TS:justify-evenly;
+  @apply TL:max-w-6xl TL:justify-between;
   & .left {
-    @apply TM:w-116;
+    @apply TS:w-116;
   }
   & .main-text-wrapper {
     @apply px-5 mb-4;
@@ -125,11 +125,13 @@ export default {
     @apply w-full h-60 bg-no-repeat;
     background: url("@/assets/images/contact/map.jpg");
     background-position: -6.5rem 0rem;
-    @apply TM:hidden;
+    @apply TS:hidden;
   }
   & .map-pc {
-    @apply hidden w-136;
-    @apply TM:block;
+    @apply hidden w-72 mr-5;
+    @apply TS:block;
+    @apply TM:w-112;
+    @apply TL:w-136;
     height: 629px;
     background-size: 70rem;
     background-position: -15rem 5rem;

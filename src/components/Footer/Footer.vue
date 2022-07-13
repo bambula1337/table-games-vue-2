@@ -1,43 +1,58 @@
 <template>
-  <div class="footer">
-    <div class="top-container">
-      <div class="logo-wrapper">
-        <img src="@/assets/images/global/l3 1.svg" alt="" class="logo" />
-      </div>
-      <div class="links-wrapper">
-        <p class="link" v-for="link in links" :key="link.id">
-          {{ link.name }}
-        </p>
-      </div>
-      <div class="information-location-wrapper">
-        <p class="information-location">
-          {{ information.address }}
-        </p>
-      </div>
-      <div class="information-contact-wrapper">
-        <p class="information-contact-number">
-          {{ information.number }}
-        </p>
-        <p class="information-contact-email">
-          {{ information.email }}
-        </p>
-      </div>
-      <div class="social-medias">
-        <div class="social-media" v-for="social in social" :key="social.id">
-          <img
-            :src="srcFixer(social.img.url)"
-            alt=""
-            class="social-media-img"
-          />
+  <div class="footer-wrapper">
+    <div class="footer">
+      <div class="top-container">
+        <div class="logo-wrapper">
+          <img src="@/assets/images/global/l3 1.svg" alt="" class="logo" />
+          <p class="address">
+            {{ information.address }}
+          </p>
+        </div>
+        <div class="link-catalog">
+          <p class="link">Каталог</p>
+          <div class="catalog-links">
+            <p class="link" v-for="link in links.catalog.links" :key="link.id">
+              {{ link.name }}
+            </p>
+          </div>
+        </div>
+        <div class="links-wrapper">
+          <p class="link" v-for="link in links.other" :key="link.id">
+            {{ link.name }}
+          </p>
+        </div>
+        <div class="information">
+          <div class="information-location-wrapper">
+            <p class="information-location">
+              {{ information.address }}
+            </p>
+          </div>
+          <div class="information-contact-wrapper">
+            <p class="information-contact-number">
+              {{ information.number }}
+            </p>
+            <p class="information-contact-email">
+              {{ information.email }}
+            </p>
+          </div>
+          <div class="social-medias">
+            <div class="social-media" v-for="social in social" :key="social.id">
+              <img
+                :src="srcFixer(social.img.url)"
+                alt=""
+                class="social-media-img"
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="bottom-container">
-      <div class="bottom-information-mobile">
-        <p class="information-text">
-          Политика конфиденциальности Содержимое не является публичной офертой
-          Пользовательское соглашение © 2021 MagicGoldFish.ru
-        </p>
+      <div class="bottom-container">
+        <div class="bottom-information-mobile">
+          <p class="information-text">
+            Политика конфиденциальности Содержимое не является публичной офертой
+            Пользовательское соглашение © 2021 MagicGoldFish.ru
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -48,38 +63,71 @@ export default {
   name: "FooterComponent",
   data() {
     return {
-      links: [
-        {
-          id: 1,
-          name: "Каталог",
+      links: {
+        catalog: {
+          name: "",
           url: "",
+          links: [
+            {
+              id: 1,
+              name: "Warhammer 40000",
+              url: "",
+            },
+            {
+              id: 2,
+              name: "Настольные игры",
+              url: "",
+            },
+            {
+              id: 3,
+              name: "Magic: the Gathering",
+              url: "",
+            },
+            {
+              id: 4,
+              name: "Аксуссуары для игр",
+              url: "",
+            },
+            {
+              id: 5,
+              name: "Краски",
+              url: "",
+            },
+            {
+              id: 6,
+              name: "Аксессуары для моделизма",
+              url: "",
+            },
+          ],
         },
-        {
-          id: 2,
-          name: "Правила клуба",
-          url: "",
-        },
-        {
-          id: 3,
-          name: "Мероприятия",
-          url: "",
-        },
-        {
-          id: 4,
-          name: "О нас",
-          url: "",
-        },
-        {
-          id: 5,
-          name: "Контакты",
-          url: "",
-        },
-        {
-          id: 6,
-          name: "Блог",
-          url: "",
-        },
-      ],
+        other: [
+          {
+            id: 1,
+            name: "Правила клуба",
+            url: "",
+          },
+          {
+            id: 2,
+            name: "Мероприятия",
+            url: "",
+          },
+          {
+            id: 3,
+            name: "О нас",
+            url: "",
+          },
+          {
+            id: 4,
+            name: "Контакты",
+            url: "",
+          },
+          {
+            id: 5,
+            name: "Блог",
+            url: "",
+          },
+        ],
+      },
       information: {
         address: "г. Москва ст.м. Таганская Малый Дровяной переулок 6",
         number: "+7 (495) 911-10-11",
@@ -122,20 +170,62 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.footer-wrapper {
+  @apply w-full flex justify-center bg-project-black;
+}
 .footer {
-  @apply flex flex-col w-full bg-project-black px-5 pt-10 pb-7;
+  @apply w-full flex flex-col bg-project-black px-5 pt-10 pb-7;
+  @apply TM:max-w-6xl;
 
   & .top-container {
     @apply flex flex-col items-center text-center;
+    @apply TM:flex-row TM:justify-between TM:items-start;
     & .logo-wrapper {
-      @apply w-32 h-8 mb-7;
+      @apply w-32 h-8 mb-7 text-left;
+      @apply TM:w-56;
       & .logo {
+        @apply TM:w-38;
+      }
+      & .address {
+        @apply hidden text-white w-54;
+        @apply TM:inline;
+      }
+    }
+    & .link-catalog {
+      & .link {
+        @apply flex flex-col items-center text-white font-bold select-none cursor-pointer mb-2;
+        @apply TM:items-start;
+        &::after {
+          @apply w-0 transition-all duration-300 -mt-0.5;
+          content: "";
+          border-top: 2px white solid;
+        }
+        &:hover {
+          &::after {
+            @apply LS:w-7;
+          }
+        }
+      }
+      & .catalog-links {
+        @apply hidden items-start;
+        @apply TM:flex TM:flex-col;
+        & .link {
+          @apply mb-1 font-normal transition-all duration-300;
+          &:hover {
+            @apply opacity-70;
+            &::after {
+              @apply w-0;
+            }
+          }
+        }
       }
     }
     & .links-wrapper {
       @apply h-40 flex flex-col justify-between items-center mb-6;
+      @apply TM:items-start;
       & .link {
         @apply flex flex-col items-center text-white font-bold select-none cursor-pointer;
+        @apply TM:items-start;
         &::after {
           @apply w-0 transition-all duration-300 -mt-0.5;
           content: "";
@@ -148,10 +238,15 @@ export default {
         }
       }
     }
+    & .information {
+      @apply flex flex-col items-center;
+      @apply TM:items-end TM:text-right;
+    }
     & .information-location-wrapper {
       @apply w-56 mb-4;
       & .information-location {
         @apply text-white;
+        @apply TM:hidden;
       }
     }
     & .information-contact-wrapper {
@@ -163,7 +258,7 @@ export default {
       }
     }
     & .social-medias {
-      @apply w-24 flex items-center justify-between px-0.5 mb-3.5;
+      @apply w-24 flex items-center justify-between px-0.5 mb-3.5 cursor-pointer;
       & .social-media {
         &:hover {
           & .social-media-img {

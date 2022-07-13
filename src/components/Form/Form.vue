@@ -50,6 +50,8 @@ export default {
 <style lang="scss" scoped>
 .form {
   @apply flex flex-col items-center font-trebuchet mt-8 px-5;
+  @apply MM:max-w-md;
+  @apply TS:max-w-none;
   & .main-text {
     @apply w-full font-bold mb-3.5;
     font-size: 21px;
