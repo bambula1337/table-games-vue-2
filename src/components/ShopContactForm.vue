@@ -51,7 +51,7 @@ export default {
   @apply MM:max-w-md;
   @apply TS:max-w-none;
   & .main-text {
-    @apply w-full font-bold mb-3.5 text-xl;
+    @apply w-full font-bold mb-3.5;
   }
   & .inputs-wrapper {
     @apply w-full;
@@ -61,7 +61,7 @@ export default {
         @apply mb-1;
       }
       & .input {
-        @apply w-full h-11 outline-none border-project-gray px-5 transition-colors duration-300 border-1 rounded-project-default;
+        @apply w-full h-11 border-project-gray px-5 rounded-project-default outline-none transition-colors duration-300;
         &:focus {
           @apply border-black;
         }
@@ -74,7 +74,7 @@ export default {
       @apply mb-1;
     }
     & .text-area {
-      @apply w-full h-22 resize-none outline-none border-project-gray px-5 pt-2 border-1 rounded-project-default transition-colors duration-300;
+      @apply w-full h-22 border-1 border-project-gray px-5 pt-2 resize-none outline-none rounded-project-default transition-colors duration-300;
       &:focus {
         @apply border-black;
       }
@@ -93,7 +93,7 @@ export default {
   & .button {
     @apply TM:w-full;
     & .button-text {
-      @apply h-9 flex justify-center items-center text-white font-bold;
+      @apply h-9 flex justify-center items-center font-bold text-white;
     }
   }
   & .bottom-text {

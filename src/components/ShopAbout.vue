@@ -49,7 +49,7 @@ export default {
     @apply TM:px-10;
     @apply TL:max-w-6xl TL:px-5;
     & .main-text {
-      @apply self-start font-bold mb-4 text-xl;
+      @apply self-start text-xl font-bold mb-4;
       @apply TS:text-3xl;
       @apply TL:mb-7;
     }

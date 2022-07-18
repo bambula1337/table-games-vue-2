@@ -62,7 +62,7 @@ export default {
     @apply self-start ml-5 mb-3.5;
     @apply TL:ml-0;
     & .main-text {
-      @apply font-bold text-xl;
+      @apply text-xl font-bold;
       @apply TS:text-3xl;
     }
   }
@@ -75,7 +75,7 @@ export default {
       @apply hidden;
     }
     & .card {
-      @apply h-64 flex justify-center items-end relative bg-no-repeat mx-2 cursor-pointer rounded-project-default;
+      @apply h-64 relative flex justify-center items-end bg-no-repeat mx-2 rounded-project-default cursor-pointer;
       background-size: 23rem !important;
       @apply TM:h-80;
       @apply TL:h-90 TL:mr-5 TL:ml-0;
@@ -89,7 +89,7 @@ export default {
         }
       }
       &::before {
-        @apply w-full h-full absolute bg-black opacity-0 transition-all duration-300 rounded-project-default;
+        @apply w-full h-full absolute bg-black opacity-0 rounded-project-default transition-all duration-300;
         content: "";
       }
       &:hover::before {
@@ -124,7 +124,7 @@ export default {
   }
   & .button-text {
     @apply h-9 flex justify-center items-center font-bold text-white;
-    @apply TM:text-lg TM:h-14;
+    @apply TM:h-14 TM:text-lg;
   }
 }
 </style>

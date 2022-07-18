@@ -114,7 +114,7 @@ export default {
   @apply flex items-center font-trebuchet;
   @apply TM:relative;
   & .navigation-prev {
-    @apply w-10 h-10 flex justify-center items-center absolute z-10 rotate-z-180;
+    @apply w-10 h-10 absolute flex justify-center items-center rotate-z-180 z-10;
     @apply TM:-left-7;
   }
   & .slider {
@@ -125,7 +125,7 @@ export default {
     }
   }
   & .navigation-next {
-    @apply w-10 h-10 flex justify-center items-center absolute right-0 z-10;
+    @apply w-10 h-10 absolute right-0 flex justify-center items-center z-10;
     @apply TM:-right-7;
   }
 }

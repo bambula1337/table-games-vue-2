@@ -62,14 +62,14 @@ export default {
   @apply w-full flex flex-col justify-center items-center font-trebuchet px-5;
   @apply TL:max-w-6xl;
   & .main-text {
-    @apply self-start font-bold mb-3.5 text-xl;
+    @apply self-start text-xl font-bold mb-3.5;
     @apply TS:text-3xl;
   }
   & .cards {
     @apply w-full flex justify-evenly flex-wrap cursor-pointer;
     @apply TL:justify-between;
     & .card {
-      @apply w-72 h-84 flex justify-center items-end relative mb-3.5 rounded-project-default;
+      @apply w-72 h-84 relative flex justify-center items-end mb-3.5 rounded-project-default;
       background-position: -14rem 0rem !important;
       @apply ML:w-88 ML:h-104;
       @apply TM:w-76;
@@ -94,7 +94,7 @@ export default {
         }
       }
       & .text-wrapper {
-        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pb-4 pt-2 z-10 rounded-b-project-default;
+        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pt-2 pb-4 z-10 rounded-b-project-default;
         @apply TM:pr-1;
         & .name {
           @apply font-bold transition-all duration-300;
@@ -118,7 +118,7 @@ export default {
     & .button-text {
       @apply w-full h-8.5 flex justify-center items-center bg-white border-2 border-project-orange rounded-project-default;
       @apply TS:text-base;
-      @apply TM:text-lg TM:h-14;
+      @apply TM:h-14 TM:text-lg;
     }
   }
 }

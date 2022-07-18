@@ -796,7 +796,7 @@ export default {
   @apply flex flex-col font-trebuchet font-bold;
   @apply TL:items-center;
   & .header-main {
-    @apply flex justify-between items-center w-full h-18 bg-project-black px-5 z-20;
+    @apply w-full h-18 flex justify-between items-center bg-project-black px-5 z-20;
     @apply TM:justify-evenly;
     @apply TM:z-10;
     @apply TL:max-w-6xl TL:justify-between;
@@ -805,23 +805,23 @@ export default {
       content: "";
     }
     & .mobile-menu-opener-wrapper {
-      @apply h-4 w-px-18 absolute cursor-pointer;
+      @apply w-px-18 h-4 absolute cursor-pointer;
       @apply TS:w-5;
       @apply TM:hidden;
       &::before {
-        @apply absolute w-full bg-white transition-all duration-300;
+        @apply w-full absolute bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         transform: translateY(1px);
       }
       & .opener {
-        @apply absolute w-full bg-white transition-all duration-300;
+        @apply w-full absolute bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         transform: translateY(6.5px);
       }
       &::after {
-        @apply absolute w-full bg-white transition-all duration-300;
+        @apply w-full absolute bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         transform: translateY(12px);
@@ -836,7 +836,7 @@ export default {
           &[open] {
             & .category-summary {
               &::before {
-                @apply translate-x-%100;
+                transform: translateX(100%) !important;
               }
 
               & .arrow {
@@ -852,15 +852,15 @@ export default {
             }
           }
           & .category-summary {
-            @apply w-full flex items-center px-8 h-11 transition-colors duration-300;
+            @apply w-full h-11 flex items-center px-8 transition-colors duration-300;
             &::before {
               @apply w-full h-11 absolute right-full  bg-project-orange transition-transform duration-300;
               content: "";
             }
             & .summary-text {
-              @apply flex flex-col cursor-pointer items-start z-10 select-none;
+              @apply flex flex-col items-start select-none cursor-pointer z-10;
               &::after {
-                @apply w-0 transition-all duration-300 border-t-2 border-black;
+                @apply w-0 border-t-2 border-black transition-all duration-300;
                 content: "";
               }
               &:hover {
@@ -870,13 +870,13 @@ export default {
               }
             }
             & .arrow {
-              @apply absolute right-8 mt-1 opacity-30 transition-opacity duration-300 cursor-pointer;
+              @apply absolute right-8 opacity-30 mt-1 cursor-pointer transition-opacity duration-300;
             }
           }
           & .sub-categories {
-            @apply my-5 ml-12 cursor-pointer;
+            @apply ml-12 my-5 cursor-pointer;
             & .sub-category {
-              @apply mb-3 transition-all duration-300 select-none;
+              @apply mb-3 select-none transition-all duration-300;
 
               &:hover {
                 @apply opacity-60;
@@ -888,14 +888,14 @@ export default {
       & .links-wrapper {
         @apply h-36 flex flex-col justify-between px-8;
         &::before {
-          @apply w-full h-0.5 absolute -ml-8 -mt-8 bg-project-gray;
+          @apply w-full h-0.5 absolute bg-project-gray -ml-8 -mt-8;
           content: "";
         }
         & .link {
-          @apply flex flex-col cursor-pointer self-start items-start select-none;
+          @apply self-start flex flex-col items-start select-none cursor-pointer;
 
           &::after {
-            @apply w-0 transition-all duration-300 border-t-2 border-black;
+            @apply w-0 border-t-2 border-black transition-all duration-300;
             content: "";
           }
           &:hover {
@@ -907,12 +907,12 @@ export default {
       }
     }
     & .search-wrapper {
-      @apply w-%40 h-14 justify-center items-center hidden bg-project-creamy px-5 -ml-5 relative;
+      @apply w-%40 h-14 relative hidden justify-center items-center bg-project-creamy -ml-5 px-5;
       @apply TM:flex;
       @apply TL:w-120;
 
       & .search-input {
-        @apply w-full h-8.5 px-3 pr-9 outline-none z-10 rounded-project-default border-1 border-white;
+        @apply w-full h-8.5 rounded-project-default border-1 border-white px-3 pr-9 outline-none z-10;
       }
       & .search-icon-wrapper {
         @apply absolute right-8  z-10;
@@ -929,7 +929,7 @@ export default {
         @apply TL:w-px-26;
       }
       & .number {
-        @apply text-lg text-white font-bold;
+        @apply text-lg font-bold text-white;
       }
     }
     & .logo-wrapper {
@@ -947,9 +947,9 @@ export default {
       }
     }
     & .icons-wrapper {
-      @apply flex justify-between w-14 -mt-0.5;
+      @apply w-14 flex justify-between -mt-0.5;
       & .user-icon-wrapper {
-        @apply w-5 -mt-0.5 transition-opacity duration-300 cursor-pointer;
+        @apply w-5 -mt-0.5 cursor-pointer transition-opacity duration-300;
         @apply MM:-ml-5;
         @apply TS:w-6;
         @apply TL:w-7;
@@ -958,11 +958,11 @@ export default {
         }
       }
       & .basket-icon-wrapper {
-        @apply w-5 transition-opacity duration-300 cursor-pointer relative;
+        @apply w-5 relative cursor-pointer transition-opacity duration-300;
         @apply TS:w-6;
         @apply TL:w-7;
         &::before {
-          @apply w-2.5 h-2.5 absolute -right-0.5 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
+          @apply w-2.5 h-2.5 absolute -right-0.5 flex justify-center items-center rounded-full bg-project-orange font-bold text-white -mt-1;
           font-size: 8px;
           content: "1";
           @apply TL:w-3 TL:h-3 TL:-right-1;
@@ -974,14 +974,14 @@ export default {
     }
   }
   & .search-for-mobile {
-    @apply flex justify-center items-center w-full h-14 bg-project-creamy px-5 relative;
+    @apply w-full h-14 relative flex justify-center items-center bg-project-creamy px-5;
     @apply TM:hidden;
 
     & .search-input {
-      @apply w-full h-9.5 px-3 pr-9 outline-none z-10 rounded-project-default border-1 border-white;
+      @apply w-full h-9.5 rounded-project-default border-1 border-white px-3 pr-9 outline-none z-10;
     }
     & .search-icon-wrapper {
-      @apply absolute right-8  z-10;
+      @apply absolute right-8 z-10;
     }
   }
   & .catalog-for-pc {
@@ -991,24 +991,24 @@ export default {
     background: rgba(54, 54, 54, 0.04);
 
     & .catalog-main {
-      @apply w-full flex justify-center items-center px-5 relative;
+      @apply w-full relative flex justify-center items-center px-5;
       @apply TL:max-w-6xl TL:justify-between TL:px-5;
       & .catalog-opener {
-        @apply w-4 h-3.5 hidden absolute cursor-pointer -mt-0.5 -ml-228;
+        @apply w-4 h-3.5 absolute hidden -mt-0.5 -ml-228 cursor-pointer;
         @apply TM:block;
         @apply TL:ml-0;
         &::before {
-          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
+          @apply w-full h-0.5 absolute bg-black transition-all duration-300;
           content: "";
           transform: translateY(1px);
         }
         & .opener {
-          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
+          @apply w-full h-0.5 absolute bg-black transition-all duration-300;
           content: "";
           transform: translateY(6.5px);
         }
         &::after {
-          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
+          @apply w-full h-0.5 absolute bg-black transition-all duration-300;
           content: "";
           transform: translateY(12px);
         }
@@ -1037,25 +1037,25 @@ export default {
       }
     }
     & .catalog-menu {
-      @apply w-full flex justify-center absolute left-0 text-black z-20 top-18;
+      @apply w-full absolute left-0 top-18 flex justify-center text-black z-20;
 
       & .catalog-menu-main {
-        @apply flex bg-white pt-2 font-bold relative;
+        @apply relative flex bg-white font-bold pt-2;
         & .left {
-          @apply mr-20 border-r-2 border-project-gray;
+          @apply border-r-2 border-project-gray mr-20;
           & .top {
-            @apply flex items-center justify-start pl-7 border-b-2 border-project-gray;
+            @apply flex items-center justify-start border-b-2 border-project-gray pl-7;
             height: 46px !important;
             & .catalog-closer {
-              @apply w-4 h-3.5 absolute cursor-pointer z-20 -mt-1;
+              @apply w-4 h-3.5 absolute -mt-1 cursor-pointer z-20;
               @apply TM:block;
               &::before {
-                @apply absolute w-full h-0.5 bg-black transition-all duration-300 rounded-full;
+                @apply w-full h-0.5 absolute rounded-full bg-black transition-all duration-300;
                 content: "";
                 transform: translateY(6.5px) rotate(45deg);
               }
               &::after {
-                @apply absolute w-full h-0.5 bg-black transition-all duration-300 rounded-full;
+                @apply w-full h-0.5 absolute rounded-full bg-black transition-all duration-300;
                 content: "";
                 transform: translateY(6.5px) rotate(-45deg);
               }
@@ -1067,10 +1067,10 @@ export default {
               }
             }
             & .text {
-              @apply flex flex-col cursor-pointer items-start ml-7 select-none;
+              @apply flex flex-col items-start ml-7 cursor-pointer select-none;
 
               &::after {
-                @apply w-0 transition-all duration-300 border-t-2 border-black;
+                @apply w-0 border-t-2 border-black transition-all duration-300;
                 content: "";
               }
               &:hover {
@@ -1083,27 +1083,27 @@ export default {
           & .bottom {
             @apply mb-11;
             & .category {
-              @apply w-full flex items-center relative overflow-hidden;
+              @apply w-full relative flex items-center overflow-hidden;
               &::before {
                 @apply w-full absolute right-full  bg-project-orange transition-transform duration-300;
                 content: "";
                 height: 46px;
               }
               & .name {
-                @apply w-full flex flex-col justify-center items-start select-none pl-7 relative;
+                @apply w-full relative flex flex-col justify-center items-start select-none pl-7;
                 height: 46px;
               }
               & .arrow {
-                @apply -ml-5 opacity-30 transition-opacity duration-300 z-10;
+                @apply opacity-30 -ml-5 transition-opacity duration-300 z-10;
               }
             }
           }
         }
         & .categories-selected-name {
-          @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 transition-all duration-700 cursor-pointer select-none;
+          @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 select-none cursor-pointer transition-all duration-700;
 
           &::after {
-            @apply w-0 transition-all duration-300 border-t-2 border-black;
+            @apply w-0 border-t-2 border-black transition-all duration-300;
             content: "";
             border-top: 2px black solid;
           }
@@ -1119,7 +1119,7 @@ export default {
           width: 70vw;
           @apply TL:h-48;
           & .sub-category {
-            @apply ml-10 mb-0 transition-opacity duration-300 cursor-pointer;
+            @apply ml-10 mb-0 cursor-pointer transition-opacity duration-300;
             flex: 0 1 40px;
             &:hover {
               @apply opacity-50;
@@ -1130,10 +1130,10 @@ export default {
     }
   }
   & .overlay {
-    @apply fixed top-0 left-full w-screen h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
+    @apply w-screen h-screen fixed top-0 left-full bg-black opacity-0 transition-opacity duration-300 z-10;
   }
   & .pc-overlay {
-    @apply fixed top-0 h-screen bg-black opacity-0 z-10 transition-opacity duration-300;
+    @apply h-screen fixed top-0 bg-black opacity-0 transition-opacity duration-300 z-10;
     width: 100vw;
     transform: translateX(100%);
   }
@@ -1180,16 +1180,16 @@ export default {
 .mobile-opened {
   &::before {
     @apply rounded-full;
-    background-color: rgba(249, 164, 63) !important;
     transform: translateY(6.5px) rotate(45deg) !important;
+    background-color: rgba(249, 164, 63) !important;
   }
   & .opener {
     transform: translateY(6.5px) scale(0) !important;
   }
   &::after {
     @apply rounded-full;
-    background-color: rgba(249, 164, 63) !important;
     transform: translateY(6.5px) rotate(-45deg) !important;
+    background-color: rgba(249, 164, 63) !important;
   }
 }
 .menu-opened-for-overlay {

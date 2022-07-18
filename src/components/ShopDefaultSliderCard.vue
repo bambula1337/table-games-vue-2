@@ -141,7 +141,7 @@ export default {
       @apply w-full h-full;
     }
     & .sale {
-      @apply absolute -top-3 -right-5 text-white font-sans font-medium bg-project-orange py-0.5 px-3 rounded-full;
+      @apply absolute -top-3 -right-5 bg-project-orange font-medium font-sans text-white px-3 py-0.5 rounded-full;
     }
   }
   & .limits-wrapper {
@@ -180,7 +180,7 @@ export default {
       @apply relative text-lg mr-2;
 
       &::after {
-        @apply absolute w-full h-0.5 bg-black;
+        @apply w-full h-0.5 absolute bg-black;
         content: "";
         transform: translateX(-100%) translateY(12.5px) rotateZ(-15.57deg);
       }
@@ -195,7 +195,7 @@ export default {
       @apply h-8.5 flex justify-center items-center font-bold text-white mr-1;
     }
     & .button-text-transparent {
-      @apply w-full h-8.5 flex justify-center items-center text-project-orange bg-white border-2 border-project-orange rounded-project-default;
+      @apply w-full h-8.5 flex justify-center items-center bg-white border-2 border-project-orange text-project-orange rounded-project-default;
     }
   }
 }

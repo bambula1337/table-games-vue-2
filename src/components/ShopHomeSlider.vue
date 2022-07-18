@@ -90,12 +90,12 @@ export default {
   & .slider {
     @apply w-%115 text-white;
     & .slide {
-      @apply h-54 flex flex-col justify-center items-start px-2 bg-no-repeat;
-      @apply TM:flex-row TM:justify-between TM:items-end TM:pb-8 TM:px-9;
-      display: flex !important;
+      @apply h-54 flex flex-col justify-center items-start bg-no-repeat px-2;
+      @apply TM:flex-row TM:justify-between TM:items-end TM:px-9 TM:pb-8;
       width: 98% !important;
-      background-position: -3.2rem 0rem !important;
+      display: flex !important;
       background-size: 41rem !important;
+      background-position: -3.2rem 0rem !important;
       @screen MM {
         background-size: 50rem !important;
       }
@@ -124,7 +124,7 @@ export default {
         @apply flex flex-col-reverse mb-2;
         @apply TM:mb-0;
         & .main-text {
-          @apply font-bold text-2xl;
+          @apply text-2xl font-bold;
           @screen TM {
             @apply text-3xl;
           }

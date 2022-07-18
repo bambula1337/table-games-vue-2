@@ -230,28 +230,28 @@ export default {
     @apply flex flex-col items-center text-center;
     @apply TM:flex-row TM:justify-between TM:items-start TM:pb-22;
     & .logo-wrapper {
-      @apply w-32 h-8 mb-7 text-left;
+      @apply w-32 h-8 text-left mb-7;
       @apply TM:w-41;
       @apply TL:w-56;
       & .logo {
-        @apply TM:w-34 TM:mb-4 transition-opacity duration-300 cursor-pointer;
+        @apply TM:w-34 TM:mb-4 cursor-pointer transition-opacity duration-300;
         @apply TL:w-38;
         &:hover {
           @apply opacity-70;
         }
       }
       & .address {
-        @apply hidden text-white w-54;
+        @apply w-54 hidden text-white;
         @apply TM:inline;
       }
     }
     & .link-catalog {
       & .link {
-        @apply flex flex-col items-center text-white font-bold select-none cursor-pointer mb-2;
+        @apply flex flex-col items-center font-bold text-white mb-2 select-none cursor-pointer;
         @apply TM:items-start;
         @apply TL:text-lg;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
+          @apply w-0 border-t-2 border-white -mt-0.5 transition-all duration-300;
           content: "";
         }
         &:hover {
@@ -262,9 +262,9 @@ export default {
       }
       & .catalog-links {
         @apply hidden items-start;
-        @apply TM:flex TM:flex-col TM:w-38 TM:text-left;
+        @apply TM:w-38 TM:flex TM:flex-col TM:text-left;
         & .link {
-          @apply mb-0 font-normal transition-all duration-300 text-base;
+          @apply text-base font-normal mb-0 transition-all duration-300;
           &:hover {
             @apply opacity-70;
             &::after {
@@ -276,13 +276,13 @@ export default {
     }
     & .links-wrapper {
       @apply h-40 flex flex-col justify-between items-center mb-6;
-      @apply TM:items-start TM:h-40;
+      @apply TM:h-40 TM:items-start;
       & .link {
-        @apply flex flex-col items-center text-white font-bold select-none cursor-pointer;
+        @apply flex flex-col items-center font-bold text-white select-none cursor-pointer;
         @apply TM:items-start;
         @apply TL:text-lg;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
+          @apply w-0 border-t-2 border-white -mt-0.5 transition-all duration-300;
           content: "";
         }
         &:hover {
@@ -293,12 +293,12 @@ export default {
       }
     }
     & .delivery-wrapper {
-      @apply text-left text-white font-bold;
+      @apply font-bold text-white text-left;
       & .link {
-        @apply flex flex-col items-start text-white font-bold select-none cursor-pointer mb-2.5;
+        @apply flex flex-col items-start font-bold text-white mb-2.5 select-none cursor-pointer;
         @apply TL:text-lg TL:mb-1;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
+          @apply w-0 border-t-2 border-white -mt-0.5 transition-all duration-300;
           content: "";
         }
         &:hover {
@@ -312,7 +312,7 @@ export default {
       @apply flex flex-col items-center;
       @apply TM:items-end TM:text-right;
       & .contact-button {
-        @apply hidden w-52 h-13 bg-none border-project-orange text-project-orange text-lg mb-3 border-1;
+        @apply w-52 h-13 hidden bg-none border-1 border-project-orange text-lg text-project-orange mb-3;
         @apply TM:block;
         @apply TL:w-56;
         & .button-text {
@@ -328,7 +328,7 @@ export default {
       }
     }
     & .information-contact-wrapper {
-      @apply text-white font-bold mb-4;
+      @apply font-bold text-white mb-4;
       & .information-contact-number {
         @apply mb-1.5;
       }
@@ -336,7 +336,7 @@ export default {
       }
     }
     & .social-medias {
-      @apply w-24 flex items-center justify-between px-0.5 mb-3.5 cursor-pointer;
+      @apply w-24 flex justify-between items-center mb-3.5 px-0.5 cursor-pointer;
       & .social-media {
         &:hover {
           & .social-media-img {
@@ -353,7 +353,7 @@ export default {
     @apply relative;
     @apply TM:pt-7;
     &::before {
-      @apply hidden absolute w-full h-10 opacity-50 bottom-6 border-t-2 border-project-gray;
+      @apply w-full h-10 absolute bottom-6 hidden opacity-50 border-t-2 border-project-gray;
       content: "";
       @apply TM:block;
     }
@@ -365,7 +365,7 @@ export default {
       }
     }
     & .bottom-information-pc {
-      @apply hidden w-full text-project-gray opacity-50 justify-between;
+      @apply w-full hidden justify-between text-project-gray opacity-50;
       @apply TM:flex;
       & .privacy {
         @apply text-sm;
@@ -381,7 +381,7 @@ export default {
         @apply w-76;
       }
       & .partners {
-        @apply flex self-center absolute left-%41.5;
+        @apply absolute left-%41.5 flex self-center;
         & .partner {
           @apply h-5 mr-2;
         }

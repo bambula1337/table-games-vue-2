@@ -90,15 +90,15 @@ export default {
 }
 .contact {
   @apply w-full font-trebuchet;
-  @apply TS:flex TS:items-center TS:justify-evenly;
+  @apply TS:flex TS:justify-evenly TS:items-center;
   @apply TL:max-w-6xl TL:justify-between;
   & .left {
     @apply TS:w-116;
   }
   & .main-text-wrapper {
-    @apply px-5 mb-4;
+    @apply mb-4 px-5;
     & .main-text {
-      @apply font-bold text-xl;
+      @apply text-xl font-bold;
       @apply TS:text-3xl;
     }
   }
@@ -111,7 +111,7 @@ export default {
         }
       }
       & .text {
-        @apply ml-5 w-full;
+        @apply w-full ml-5;
         & .main {
           @apply font-bold -mb-0.5;
         }
@@ -127,7 +127,7 @@ export default {
     @apply TS:hidden;
   }
   & .map-pc {
-    @apply hidden w-72 h-158 mr-5 rounded-project-default bg-280;
+    @apply w-72 h-158 hidden bg-280 mr-5 rounded-project-default;
     background-position: -15rem 5rem;
     @apply TS:block;
     @apply TM:w-112;
