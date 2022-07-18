@@ -85,10 +85,8 @@
 </template>
 
 <script>
-import ButtonOrangeDefault from "../Global/Buttons/ButtonOrangeDefault.vue";
 export default {
-  components: { ButtonOrangeDefault },
-  name: "FooterComponent",
+  name: "TheFooter",
   data() {
     return {
       links: {
@@ -359,9 +357,10 @@ export default {
     @apply relative;
     @apply TM:pt-7;
     &::before {
-      @apply absolute w-full h-10 opacity-70 bottom-6;
+      @apply hidden absolute w-full h-10 opacity-70 bottom-6;
       border-top: 2px gray solid;
       content: "";
+      @apply TM:block;
     }
     & .bottom-information-mobile {
       @apply text-center;

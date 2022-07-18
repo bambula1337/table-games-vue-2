@@ -103,7 +103,7 @@
 
 <script>
 export default {
-  name: "CardComponent",
+  name: "ShopDefaultSliderCard",
   props: {
     card: Object,
   },

@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 //Global Components
-import ButtonOrangeDefault from "@/components/Global/Buttons/ButtonOrangeDefault.vue";
+import ButtonOrangeDefault from "@/components/AppButtonOrange.vue";
 
 Vue.config.productionTip = false;
 

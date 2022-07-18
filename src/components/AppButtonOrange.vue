@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "ButtonOrangeDefault",
+  name: "AppButtonOranget",
 };
 </script>
 

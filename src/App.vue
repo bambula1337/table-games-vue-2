@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <TheHeader />
     <router-view />
-    <Footer />
+    <TheFooter />
   </div>
 </template>
 
@@ -11,14 +11,14 @@
 import "@/assets/styles/tailwind/tailwind.scss";
 
 //Components
-import Header from "@/components/Header/Header.vue";
-import Footer from "@/components/Footer/Footer.vue";
+import TheHeader from "@/components/TheHeader.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Footer,
+    TheHeader,
+    TheFooter,
   },
 };
 </script>

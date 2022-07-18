@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="map"></div>
-        <FormComponent />
+        <ShopContactForm />
       </div>
       <div class="right">
         <div class="map map-pc"></div>
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import FormComponent from "@/components/Form/Form.vue";
+import ShopContactForm from "@/components/ShopContactForm.vue";
 
 export default {
-  name: "ContactComponent",
+  name: "ShopContact",
   components: {
-    FormComponent,
+    ShopContactForm,
   },
   data() {
     return {

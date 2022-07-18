@@ -36,11 +36,9 @@
 
 <script>
 import { mask } from "vue-the-mask";
-import ButtonOrangeDefault from "../Global/Buttons/ButtonOrangeDefault.vue";
 
 export default {
-  components: { ButtonOrangeDefault },
-  name: "FormComponent",
+  name: "ShopContactForm",
   directives: {
     mask,
   },

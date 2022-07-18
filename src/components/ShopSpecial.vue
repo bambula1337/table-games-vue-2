@@ -5,19 +5,19 @@
         {{ mainText }}
       </p>
       <div class="slider-wrapper">
-        <SliderDefault :slides="slides" />
+        <ShopDefaultSlider :slides="slides" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SliderDefault from "@/components/SliderDefault/SliderDefault.vue";
+import ShopDefaultSlider from "@/components/ShopDefaultSlider.vue";
 
 export default {
-  name: "SpecialComponent",
+  name: "ShopSpecial",
   components: {
-    SliderDefault,
+    ShopDefaultSlider,
   },
   props: {
     mainText: {

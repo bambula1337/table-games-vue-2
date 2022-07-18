@@ -18,7 +18,7 @@
       <div class="slider-wrapper">
         <VueSlickCarousel class="slider" v-bind="settings" ref="carousel">
           <div class="slide-wrapper" v-for="slide in slides" :key="slide.id">
-            <CardComponent :card="slide" />
+            <ShopDefaultSliderCard :card="slide" />
           </div>
         </VueSlickCarousel>
       </div>
@@ -46,13 +46,13 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
-import CardComponent from "@/components/Card/Card.vue";
+import ShopDefaultSliderCard from "@/components/ShopDefaultSliderCard.vue";
 
 export default {
-  name: "SliderDefault",
+  name: "ShopDefaultSlider",
   components: {
     VueSlickCarousel,
-    CardComponent,
+    ShopDefaultSliderCard,
   },
   data() {
     return {

@@ -240,7 +240,7 @@
 
 <script>
 export default {
-  name: "HeaderComponent",
+  name: "TheHeader",
   data() {
     return {
       isMobileMenuOpened: false,

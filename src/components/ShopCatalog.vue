@@ -34,10 +34,8 @@
 </template>
 
 <script>
-import ButtonOrangeDefault from "../Global/Buttons/ButtonOrangeDefault.vue";
 export default {
-  components: { ButtonOrangeDefault },
-  name: "CatalogMain",
+  name: "ShopCatalog",
   data() {
     return {
       categories: {

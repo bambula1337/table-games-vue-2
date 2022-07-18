@@ -1,56 +1,56 @@
 <template>
   <div class="home">
-    <div class="wrapper-default wrapper-home-slider">
-      <HomeSlider />
+    <div class="wrapper-default wrapper-shop-home-slider">
+      <ShopHomeSlider />
     </div>
-    <div class="wrapper-default wrapper-catalog">
-      <CatalogMain />
+    <div class="wrapper-default wrapper-shop-catalog">
+      <ShopCatalog />
     </div>
     <div
-      class="wrapper-default wrapper-special"
+      class="wrapper-default wrapper-shop-special"
       v-for="slider in sliders"
       :key="slider.id"
     >
-      <SpecialComponent :mainText="slider.text" :slides="slider.slides" />
+      <ShopSpecial :mainText="slider.text" :slides="slider.slides" />
     </div>
-    <div class="wrapper-default wrapper-show">
-      <ShowComponent :cards="cards" />
+    <div class="wrapper-default wrapper-shop-events">
+      <ShopEvents :cards="cards" />
     </div>
-    <div class="wrapper-default wrapper-interesting">
-      <InterestingComponent
+    <div class="wrapper-default wrapper-shop-interesting">
+      <ShopInteresting
         :interesting="interesting.interestingMain"
         :other-interesting="interesting.otherInteresting"
       />
     </div>
-    <div class="wrapper-default wrapper-about">
-      <AboutComponent />
+    <div class="wrapper-default wrapper-shop-about">
+      <ShopAbout />
     </div>
-    <div class="wrapper-default wrapper-contact">
-      <ContactComponent />
+    <div class="wrapper-default wrapper-shop-contact">
+      <ShopContact />
     </div>
   </div>
 </template>
 
 <script>
 //Components
-import HomeSlider from "@/components/HomeSlider/HomeSlider.vue";
-import CatalogMain from "@/components/CatalogMain/CatalogMain.vue";
-import SpecialComponent from "@/components/Special/Special.vue";
-import ShowComponent from "@/components/Show/Show.vue";
-import InterestingComponent from "@/components/Interesting/Interesting.vue";
-import AboutComponent from "@/components/About/About.vue";
-import ContactComponent from "@/components/Contact/Contact.vue";
+import ShopHomeSlider from "@/components/ShopHomeSlider.vue";
+import ShopCatalog from "@/components/ShopCatalog.vue";
+import ShopSpecial from "@/components/ShopSpecial.vue";
+import ShopEvents from "@/components/ShopEvents.vue";
+import ShopInteresting from "@/components/ShopInteresting.vue";
+import ShopAbout from "@/components/ShopAbout.vue";
+import ShopContact from "@/components/ShopContact.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HomeSlider,
-    CatalogMain,
-    SpecialComponent,
-    ShowComponent,
-    InterestingComponent,
-    AboutComponent,
-    ContactComponent,
+    ShopHomeSlider,
+    ShopCatalog,
+    ShopSpecial,
+    ShopEvents,
+    ShopInteresting,
+    ShopAbout,
+    ShopContact,
   },
   data() {
     return {
@@ -312,30 +312,30 @@ export default {
   & .wrapper-default {
     @apply mb-5;
   }
-  & .wrapper-home-slider {
+  & .wrapper-shop-home-slider {
     @apply TM:mb-8;
   }
-  & .wrapper-catalog {
+  & .wrapper-shop-catalog {
     @apply mb-7;
     @apply TM:mb-20;
   }
-  & .wrapper-special {
+  & .wrapper-shop-special {
     @apply -mb-2;
     @apply TM:mb-1;
   }
-  & .wrapper-show {
+  & .wrapper-shop-events {
     @apply mt-2 mb-10;
     @apply TM:mb-20;
   }
-  & .wrapper-interesting {
+  & .wrapper-shop-interesting {
     @apply mb-8;
     @apply TM:mb-20;
   }
-  & .wrapper-about {
+  & .wrapper-shop-about {
     @apply mb-8;
     @apply TM:mb-20;
   }
-  & .wrapper-contact {
+  & .wrapper-shop-contact {
   }
 }
 </style>

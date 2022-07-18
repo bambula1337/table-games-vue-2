@@ -39,10 +39,8 @@
 </template>
 
 <script>
-import ButtonOrangeDefault from "../Global/Buttons/ButtonOrangeDefault.vue";
 export default {
-  components: { ButtonOrangeDefault },
-  name: "InterestingComponent",
+  name: "ShopInteresting",
   props: {
     interesting: {
       type: Object,

@@ -26,7 +26,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
-  name: "HomeSlider",
+  name: "ShopHomeSlider",
   components: {
     VueSlickCarousel,
   },

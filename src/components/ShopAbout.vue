@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "AboutComponent",
+  name: "ShopAbout",
   methods: {
     srcFixer: function (src) {
       return require(`@/assets/${src}`);
