@@ -62,25 +62,22 @@ export default {
   @apply w-full flex flex-col justify-center items-center font-trebuchet px-5;
   @apply TL:max-w-6xl;
   & .main-text {
-    @apply self-start font-bold mb-3.5;
-    font-size: 21px;
+    @apply self-start font-bold mb-3.5 text-xl;
     @apply TS:text-3xl;
   }
   & .cards {
     @apply w-full flex justify-evenly flex-wrap cursor-pointer;
     @apply TL:justify-between;
     & .card {
-      @apply w-72 h-84 flex justify-center items-end relative mb-3.5;
+      @apply w-72 h-84 flex justify-center items-end relative mb-3.5 rounded-project-default;
       background-position: -14rem 0rem !important;
-      background-repeat: no-repeat !important;
-      border-radius: 9px;
       @apply ML:w-88 ML:h-104;
       @apply TM:w-76;
       @apply TL:w-88;
-      @media (min-width: 640px) {
+      @screen ML {
         background-size: 180% !important;
       }
-      @media (min-width: 1024px) {
+      @screen TM {
         background-size: 210% !important;
         background-position: -20rem 0rem !important;
       }
@@ -97,8 +94,7 @@ export default {
         }
       }
       & .text-wrapper {
-        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pb-4 pt-2 z-10;
-        border-radius: 0 0 9px 9px;
+        @apply w-full bg-project-black bg-opacity-80 text-white pl-2 pb-4 pt-2 z-10 rounded-b-project-default;
         @apply TM:pr-1;
         & .name {
           @apply font-bold transition-all duration-300;
@@ -111,7 +107,7 @@ export default {
   }
   & .card-pc {
     display: none !important;
-    @media (min-width: 1024px) {
+    @screen TM {
       display: flex !important;
     }
   }
@@ -120,9 +116,7 @@ export default {
     @apply TM:w-60;
     @apply TM:mt-3;
     & .button-text {
-      @apply w-full flex justify-center items-center bg-white border-2 border-project-orange;
-      height: 37px;
-      border-radius: 9px;
+      @apply w-full h-8.5 flex justify-center items-center bg-white border-2 border-project-orange rounded-project-default;
       @apply TS:text-base;
       @apply TM:text-lg TM:h-14;
     }

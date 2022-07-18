@@ -88,8 +88,7 @@ export default {
 .home-slider {
   @apply w-%90 font-trebuchet;
   & .slider {
-    @apply text-white;
-    width: 115%;
+    @apply w-%115 text-white;
     & .slide {
       @apply h-54 flex flex-col justify-center items-start px-2 bg-no-repeat;
       @apply TM:flex-row TM:justify-between TM:items-end TM:pb-8 TM:px-9;
@@ -97,23 +96,22 @@ export default {
       width: 98% !important;
       background-position: -3.2rem 0rem !important;
       background-size: 41rem !important;
-      background-repeat: no-repeat !important;
-      @media (min-width: 480px) {
+      @screen MM {
         background-size: 50rem !important;
       }
-      @media (min-width: 640px) {
+      @screen ML {
         background-size: 60rem !important;
       }
-      @media (min-width: 768px) {
+      @screen TS {
         background-size: 70rem !important;
       }
-      @media (min-width: 1024px) {
+      @screen TM {
         @apply mx-1 rounded-xl;
         width: 60vw !important;
         height: 320px !important;
         background-size: 60rem !important;
       }
-      @media (min-width: 1280px) {
+      @screen TL {
         background-size: 60rem !important;
         background-position: 0rem 0rem !important;
       }
@@ -126,10 +124,9 @@ export default {
         @apply flex flex-col-reverse mb-2;
         @apply TM:mb-0;
         & .main-text {
-          @apply font-bold;
-          font-size: 26px;
-          @media (min-width: 1024px) {
-            font-size: 28px;
+          @apply font-bold text-2xl;
+          @screen TM {
+            @apply text-3xl;
           }
         }
         & .sub-text {

@@ -98,8 +98,7 @@ export default {
   & .main-text-wrapper {
     @apply px-5 mb-4;
     & .main-text {
-      @apply font-bold;
-      font-size: 21px;
+      @apply font-bold text-xl;
       @apply TS:text-3xl;
     }
   }
@@ -128,14 +127,11 @@ export default {
     @apply TS:hidden;
   }
   & .map-pc {
-    @apply hidden w-72 mr-5;
+    @apply hidden w-72 h-158 mr-5 rounded-project-default bg-280;
+    background-position: -15rem 5rem;
     @apply TS:block;
     @apply TM:w-112;
     @apply TL:w-136;
-    height: 629px;
-    background-size: 70rem;
-    background-position: -15rem 5rem;
-    border-radius: 9px;
   }
 }
 </style>

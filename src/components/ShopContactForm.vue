@@ -51,8 +51,7 @@ export default {
   @apply MM:max-w-md;
   @apply TS:max-w-none;
   & .main-text {
-    @apply w-full font-bold mb-3.5;
-    font-size: 21px;
+    @apply w-full font-bold mb-3.5 text-xl;
   }
   & .inputs-wrapper {
     @apply w-full;
@@ -62,10 +61,7 @@ export default {
         @apply mb-1;
       }
       & .input {
-        @apply w-full h-11 outline-none border-project-gray px-5 transition-colors duration-300;
-        border-width: 1px;
-        border-radius: 9px;
-
+        @apply w-full h-11 outline-none border-project-gray px-5 transition-colors duration-300 border-1 rounded-project-default;
         &:focus {
           @apply border-black;
         }
@@ -78,27 +74,26 @@ export default {
       @apply mb-1;
     }
     & .text-area {
-      @apply w-full h-22 resize-none outline-none border-project-gray px-5 pt-2 transition-colors duration-300;
-      border-width: 1px;
-      border-radius: 9px;
+      @apply w-full h-22 resize-none outline-none border-project-gray px-5 pt-2 border-1 rounded-project-default transition-colors duration-300;
       &:focus {
         @apply border-black;
       }
+      &::-webkit-scrollbar {
+        width: 0.4vw;
+      }
       &::-webkit-scrollbar-track {
-        @apply bg-project-gray mt-1.5 mb-1.5;
-        border-radius: 30px;
+        @apply bg-transparent mt-1.5 mb-1.5 rounded-full;
       }
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        border-radius: 30px;
+        @apply rounded-full;
       }
     }
   }
   & .button {
     @apply TM:w-full;
     & .button-text {
-      @apply flex justify-center items-center text-white font-bold;
-      height: 37px;
+      @apply h-9 flex justify-center items-center text-white font-bold;
     }
   }
   & .bottom-text {

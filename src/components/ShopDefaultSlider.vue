@@ -114,9 +114,8 @@ export default {
   @apply flex items-center font-trebuchet;
   @apply TM:relative;
   & .navigation-prev {
-    @apply w-10 h-10 flex justify-center items-center absolute z-10;
+    @apply w-10 h-10 flex justify-center items-center absolute z-10 rotate-z-180;
     @apply TM:-left-7;
-    transform: rotateZ(180deg);
   }
   & .slider {
     @apply grid;

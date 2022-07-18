@@ -42,15 +42,11 @@ export default {
   @apply TS:mb-10;
   @apply TM:max-w-6xl;
   & .main-text {
-    @apply text-xl font-bold px-5 z-10;
+    @apply text-xl font-bold px-5 z-10 -mb-6;
     @apply TS:text-3xl;
-    margin-bottom: -25px;
   }
   & .slider-wrapper {
-    @apply TL:-ml-3.5;
-    @media (min-width: 1280px) {
-      width: 101.5%;
-    }
+    @apply TL:-ml-3.5 TL:w-%101.5;
   }
 }
 </style>

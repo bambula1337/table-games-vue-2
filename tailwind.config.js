@@ -1,9 +1,25 @@
 const colors = require("tailwindcss/colors");
+const plugin = require("tailwindcss/plugin");
+
+const rotateZ = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".rotate-z-45": {
+      transform: "rotateZ(45deg)",
+    },
+    ".rotate-z-90": {
+      transform: "rotateZ(90deg)",
+    },
+    ".rotate-z-180": {
+      transform: "rotateZ(180deg)",
+    },
+  });
+});
 
 module.exports = {
   purge: [],
   presets: [],
   darkMode: false, // or 'media' or 'class'
+  important: true,
   theme: {
     screens: {
       MS: "320px",
@@ -52,6 +68,7 @@ module.exports = {
       6: "1.5rem",
       7: "1.75rem",
       8: "2rem",
+      8.5: "2.125rem",
       9: "2.25rem",
       9.5: "2.375rem",
       10: "2.5rem",
@@ -113,8 +130,11 @@ module.exports = {
       128: "32rem",
       136: "34rem",
       144: "36rem",
+      154: "38.5rem",
+      158: "39.5rem",
       150: "37.5rem",
       220: "55rem",
+      228: "57rem",
       240: "60rem",
       260: "65rem",
       280: "70rem",
@@ -142,6 +162,7 @@ module.exports = {
       "%35": "35%",
       "%37.5": "37.5%",
       "%40": "40%",
+      "%41.5": "41.5%",
       "%42.5": "42.5%",
       "%45": "45%",
       "%47.5": "47.5%",
@@ -156,8 +177,10 @@ module.exports = {
       "%90": "90%",
       "%95": "95%",
       "%100": "100%",
+      "%101.5": "101.5%",
       "%105": "105%",
       "%110": "110%",
+      "%115": "115%",
       "%120": "120%",
       "%130": "130%",
       "%140": "140%",
@@ -213,6 +236,7 @@ module.exports = {
       "right-bottom": "right bottom",
       "right-top": "right top",
       top: "top",
+      zero: "0rem 0rem !important",
     },
     backgroundSize: (theme) => ({
       auto: "auto",
@@ -267,10 +291,12 @@ module.exports = {
       "2xl": "1rem",
       "3xl": "1.5rem",
       full: "9999px",
+      "project-default": "9px",
     },
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      1: "1px",
       2: "2px",
       4: "4px",
       8: "8px",
@@ -285,6 +311,7 @@ module.exports = {
       "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
       inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
       none: "none",
+      "project-card": "5px 6px 16px rgba(42, 42, 42, 0.16)",
     },
     caretColor: (theme) => theme("colors"),
     contrast: {
@@ -935,6 +962,7 @@ module.exports = {
     }),
     zIndex: {
       auto: "auto",
+      "-1": "-1",
       0: "0",
       10: "10",
       20: "20",
@@ -1156,5 +1184,5 @@ module.exports = {
     wordBreak: ["responsive"],
     zIndex: ["responsive", "focus-within", "focus"],
   },
-  plugins: [],
+  plugins: [rotateZ],
 };

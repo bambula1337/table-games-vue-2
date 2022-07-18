@@ -62,8 +62,7 @@ export default {
     @apply self-start ml-5 mb-3.5;
     @apply TL:ml-0;
     & .main-text {
-      @apply font-bold;
-      font-size: 21px;
+      @apply font-bold text-xl;
       @apply TS:text-3xl;
     }
   }
@@ -73,35 +72,31 @@ export default {
     -ms-overflow-style: none !important;
     @apply ML:justify-center;
     &::-webkit-scrollbar {
-      display: none;
+      @apply hidden;
     }
     & .card {
-      @apply h-64 flex justify-center items-end relative bg-no-repeat mx-2 cursor-pointer;
-      border-radius: 9px;
+      @apply h-64 flex justify-center items-end relative bg-no-repeat mx-2 cursor-pointer rounded-project-default;
       background-size: 23rem !important;
-      background-repeat: no-repeat !important;
       @apply TM:h-80;
       @apply TL:h-90 TL:mr-5 TL:ml-0;
-      @media (min-width: 1024px) {
+      @screen TM {
         background-size: 30rem !important;
       }
-      @media (min-width: 1280px) {
+      @screen TL {
         background-size: 100% !important;
         &:last-child {
           @apply TL:mr-2;
         }
       }
       &::before {
-        @apply w-full h-full absolute bg-black opacity-0 transition-all duration-300;
+        @apply w-full h-full absolute bg-black opacity-0 transition-all duration-300 rounded-project-default;
         content: "";
-        border-radius: 9px;
       }
       &:hover::before {
         @apply opacity-20;
       }
       & .text-wrapper {
-        @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2 z-10;
-        border-radius: 0 0 9px 9px;
+        @apply w-72 bg-project-black bg-opacity-80 pl-2.5 p-2 z-10 rounded-b-project-default;
         @apply MM:w-76;
         @apply TS:w-88;
         @apply TM:w-116;
@@ -128,8 +123,7 @@ export default {
     @apply TM:w-60 TM:mt-3;
   }
   & .button-text {
-    @apply flex justify-center items-center font-bold text-white;
-    height: 37px;
+    @apply h-9 flex justify-center items-center font-bold text-white;
     @apply TM:text-lg TM:h-14;
   }
 }

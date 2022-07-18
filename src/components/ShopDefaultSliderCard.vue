@@ -134,11 +134,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  @apply h-100 flex-col items-center bg-white my-10 px-11 pt-7;
-  box-shadow: 5px 6px 16px rgba(42, 42, 42, 0.16);
-  border-radius: 9px;
-  width: 225px !important;
-  display: flex !important;
+  @apply w-56 h-100 flex flex-col items-center bg-white my-10 px-11 pt-7 rounded-project-default shadow-project-card;
   & .main-img-wrapper {
     @apply w-38 relative;
     & .main-img {
@@ -155,7 +151,7 @@ export default {
       & .icon {
       }
       & .text {
-        margin-left: 5px;
+        @apply ml-1;
       }
     }
     & .time {
@@ -163,7 +159,7 @@ export default {
       & .icon {
       }
       & .text {
-        margin-left: 3px;
+        @apply ml-0.5;
       }
     }
     & .age {
@@ -196,13 +192,10 @@ export default {
   & .buttons-wrapper {
     @apply h-19 flex flex-col justify-between;
     & .button-text-default {
-      @apply flex justify-center items-center font-bold text-white mr-1;
-      height: 34px;
+      @apply h-8.5 flex justify-center items-center font-bold text-white mr-1;
     }
     & .button-text-transparent {
-      @apply w-full flex justify-center items-center text-project-orange bg-white border-2 border-project-orange;
-      height: 34px;
-      border-radius: 9px;
+      @apply w-full h-8.5 flex justify-center items-center text-project-orange bg-white border-2 border-project-orange rounded-project-default;
     }
   }
 }

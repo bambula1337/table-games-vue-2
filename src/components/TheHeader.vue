@@ -801,15 +801,13 @@ export default {
     @apply TM:z-10;
     @apply TL:max-w-6xl TL:justify-between;
     &::before {
-      @apply w-full h-18 absolute left-0 top-0 bg-project-black;
-      z-index: -1;
+      @apply w-full h-18 absolute left-0 top-0 bg-project-black -z-1;
       content: "";
     }
     & .mobile-menu-opener-wrapper {
-      @apply w-px-18 absolute cursor-pointer;
+      @apply h-4 w-px-18 absolute cursor-pointer;
       @apply TS:w-5;
       @apply TM:hidden;
-      height: 16px;
       &::before {
         @apply absolute w-full bg-white transition-all duration-300;
         content: "";
@@ -838,7 +836,7 @@ export default {
           &[open] {
             & .category-summary {
               &::before {
-                transform: translateX(100%);
+                @apply translate-x-%100;
               }
 
               & .arrow {
@@ -862,9 +860,8 @@ export default {
             & .summary-text {
               @apply flex flex-col cursor-pointer items-start z-10 select-none;
               &::after {
-                @apply w-0 transition-all duration-300;
+                @apply w-0 transition-all duration-300 border-t-2 border-black;
                 content: "";
-                border-top: 2px black solid;
               }
               &:hover {
                 &::after {
@@ -898,9 +895,8 @@ export default {
           @apply flex flex-col cursor-pointer self-start items-start select-none;
 
           &::after {
-            @apply w-0 transition-all duration-300;
+            @apply w-0 transition-all duration-300 border-t-2 border-black;
             content: "";
-            border-top: 2px black solid;
           }
           &:hover {
             &::after {
@@ -916,10 +912,7 @@ export default {
       @apply TL:w-120;
 
       & .search-input {
-        @apply w-full px-3 pr-9 outline-none z-10;
-        border-radius: 9px;
-        height: 34px;
-        border: 1px solid #f2f2f2;
+        @apply w-full h-8.5 px-3 pr-9 outline-none z-10 rounded-project-default border-1 border-white;
       }
       & .search-icon-wrapper {
         @apply absolute right-8  z-10;
@@ -969,14 +962,10 @@ export default {
         @apply TS:w-6;
         @apply TL:w-7;
         &::before {
-          @apply absolute -right-0.5 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
-          width: 10px;
-          height: 10px;
+          @apply w-2.5 h-2.5 absolute -right-0.5 -mt-1 flex justify-center items-center bg-project-orange text-white font-bold rounded-full;
           font-size: 8px;
           content: "1";
-          @media (min-width: 1280px) {
-            @apply w-3 h-3 -right-1;
-          }
+          @apply TL:w-3 TL:h-3 TL:-right-1;
         }
         &:hover {
           @apply LS:opacity-70;
@@ -989,10 +978,7 @@ export default {
     @apply TM:hidden;
 
     & .search-input {
-      @apply w-full px-3 pr-9 outline-none z-10;
-      border-radius: 9px;
-      height: 38px;
-      border: 1px solid #f2f2f2;
+      @apply w-full h-9.5 px-3 pr-9 outline-none z-10 rounded-project-default border-1 border-white;
     }
     & .search-icon-wrapper {
       @apply absolute right-8  z-10;
@@ -1008,27 +994,22 @@ export default {
       @apply w-full flex justify-center items-center px-5 relative;
       @apply TL:max-w-6xl TL:justify-between TL:px-5;
       & .catalog-opener {
-        @apply w-4 hidden absolute cursor-pointer -mt-0.5;
-        margin-left: -57rem;
+        @apply w-4 h-3.5 hidden absolute cursor-pointer -mt-0.5 -ml-228;
         @apply TM:block;
         @apply TL:ml-0;
-        height: 14px;
         &::before {
-          @apply absolute w-full bg-black transition-all duration-300;
+          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
           content: "";
-          height: 2px;
           transform: translateY(1px);
         }
         & .opener {
-          @apply absolute w-full bg-black transition-all duration-300;
+          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
           content: "";
-          height: 2px;
           transform: translateY(6.5px);
         }
         &::after {
-          @apply absolute w-full bg-black transition-all duration-300;
+          @apply absolute w-full h-0.5 bg-black transition-all duration-300;
           content: "";
-          height: 2px;
           transform: translateY(12px);
         }
       }
@@ -1056,32 +1037,26 @@ export default {
       }
     }
     & .catalog-menu {
-      @apply w-full flex justify-center absolute left-0 text-black z-20;
-      top: 4.5rem;
+      @apply w-full flex justify-center absolute left-0 text-black z-20 top-18;
 
       & .catalog-menu-main {
         @apply flex bg-white pt-2 font-bold relative;
         & .left {
-          @apply mr-20;
-          border-right: 2px rgb(196, 196, 196) solid;
+          @apply mr-20 border-r-2 border-project-gray;
           & .top {
-            @apply flex items-center justify-start pl-7;
+            @apply flex items-center justify-start pl-7 border-b-2 border-project-gray;
             height: 46px !important;
-            border-bottom: 2px rgb(196, 196, 196) solid;
             & .catalog-closer {
-              @apply w-4 absolute cursor-pointer z-20 -mt-1;
+              @apply w-4 h-3.5 absolute cursor-pointer z-20 -mt-1;
               @apply TM:block;
-              height: 14px;
               &::before {
-                @apply absolute w-full bg-black transition-all duration-300 rounded-full;
+                @apply absolute w-full h-0.5 bg-black transition-all duration-300 rounded-full;
                 content: "";
-                height: 2px;
                 transform: translateY(6.5px) rotate(45deg);
               }
               &::after {
-                @apply absolute w-full bg-black transition-all duration-300 rounded-full;
+                @apply absolute w-full h-0.5 bg-black transition-all duration-300 rounded-full;
                 content: "";
-                height: 2px;
                 transform: translateY(6.5px) rotate(-45deg);
               }
               &:hover {
@@ -1095,9 +1070,8 @@ export default {
               @apply flex flex-col cursor-pointer items-start ml-7 select-none;
 
               &::after {
-                @apply w-0 transition-all duration-300;
+                @apply w-0 transition-all duration-300 border-t-2 border-black;
                 content: "";
-                border-top: 2px black solid;
               }
               &:hover {
                 &::after {
@@ -1129,7 +1103,7 @@ export default {
           @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 transition-all duration-700 cursor-pointer select-none;
 
           &::after {
-            @apply w-0 transition-all duration-300;
+            @apply w-0 transition-all duration-300 border-t-2 border-black;
             content: "";
             border-top: 2px black solid;
           }

@@ -1,6 +1,6 @@
 <template>
-  <div class="about-wrapper">
-    <div class="about">
+  <div class="about">
+    <div class="about-main">
       <p class="main-text">Об игровом центре</p>
       <div class="right">
         <img :src="srcFixer('images/about/about_1.jpg')" alt="" class="photo" />
@@ -42,38 +42,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-wrapper {
-  @apply flex justify-center;
-}
 .about {
-  @apply w-full flex flex-col items-center font-trebuchet px-5;
-  @apply TM:px-10;
-  @apply TL:max-w-6xl TL:px-5;
-  & .main-text {
-    @apply self-start font-bold mb-4;
-    font-size: 21px;
-    @apply TS:text-3xl;
-    @apply TL:mb-7;
-  }
-  & .right {
-    @apply TM:w-full TM:flex TM:flex-row-reverse;
-    & .photo {
-      @apply mb-4;
-      @apply MM:w-80;
-      @apply ML:w-88;
-      @apply TM:w-220 TM:h-%80;
-      @apply TL:w-260 TL:h-%105 TL:-mt-14;
-
-      border-radius: 9px;
+  @apply flex justify-center;
+  & .about-main {
+    @apply w-full flex flex-col items-center font-trebuchet px-5;
+    @apply TM:px-10;
+    @apply TL:max-w-6xl TL:px-5;
+    & .main-text {
+      @apply self-start font-bold mb-4 text-xl;
+      @apply TS:text-3xl;
+      @apply TL:mb-7;
     }
-    & .sub-text {
-      @apply w-72;
-      @apply MM:w-80;
-      @apply ML:w-88;
-      @apply TM:w-full TM:mr-10;
-      & .br {
-        @apply block mt-5;
-        content: "";
+    & .right {
+      @apply TM:w-full TM:flex TM:flex-row-reverse;
+      & .photo {
+        @apply mb-4 rounded-project-default;
+        @apply MM:w-80;
+        @apply ML:w-88;
+        @apply TM:w-220 TM:h-%80;
+        @apply TL:w-260 TL:h-%105 TL:-mt-14;
+      }
+      & .sub-text {
+        @apply w-72;
+        @apply MM:w-80;
+        @apply ML:w-88;
+        @apply TM:w-full TM:mr-10;
+        & .br {
+          @apply block mt-5;
+          content: "";
+        }
       }
     }
   }

@@ -251,9 +251,8 @@ export default {
         @apply TM:items-start;
         @apply TL:text-lg;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5;
+          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
           content: "";
-          border-top: 2px white solid;
         }
         &:hover {
           &::after {
@@ -283,9 +282,8 @@ export default {
         @apply TM:items-start;
         @apply TL:text-lg;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5;
+          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
           content: "";
-          border-top: 2px white solid;
         }
         &:hover {
           &::after {
@@ -300,9 +298,8 @@ export default {
         @apply flex flex-col items-start text-white font-bold select-none cursor-pointer mb-2.5;
         @apply TL:text-lg TL:mb-1;
         &::after {
-          @apply w-0 transition-all duration-300 -mt-0.5;
+          @apply w-0 transition-all duration-300 -mt-0.5 border-t-2 border-white;
           content: "";
-          border-top: 2px white solid;
         }
         &:hover {
           &::after {
@@ -315,8 +312,7 @@ export default {
       @apply flex flex-col items-center;
       @apply TM:items-end TM:text-right;
       & .contact-button {
-        @apply hidden w-52 h-13 bg-none border-project-orange text-project-orange text-lg mb-3;
-        border-width: 1px;
+        @apply hidden w-52 h-13 bg-none border-project-orange text-project-orange text-lg mb-3 border-1;
         @apply TM:block;
         @apply TL:w-56;
         & .button-text {
@@ -357,8 +353,7 @@ export default {
     @apply relative;
     @apply TM:pt-7;
     &::before {
-      @apply hidden absolute w-full h-10 opacity-70 bottom-6;
-      border-top: 2px gray solid;
+      @apply hidden absolute w-full h-10 opacity-50 bottom-6 border-t-2 border-project-gray;
       content: "";
       @apply TM:block;
     }
@@ -366,7 +361,7 @@ export default {
       @apply text-center;
       @apply TM:hidden;
       & .information-text {
-        color: rgba(255, 255, 255, 0.44);
+        @apply text-project-gray opacity-50;
       }
     }
     & .bottom-information-pc {
@@ -386,8 +381,7 @@ export default {
         @apply w-76;
       }
       & .partners {
-        @apply flex self-center absolute;
-        left: 41.5%;
+        @apply flex self-center absolute left-%41.5;
         & .partner {
           @apply h-5 mr-2;
         }
