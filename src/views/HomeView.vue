@@ -17,10 +17,7 @@
       <ShopEvents :cards="cards" />
     </div>
     <div class="wrapper-default wrapper-shop-interesting">
-      <ShopInteresting
-        :interesting="interesting.interestingMain"
-        :other-interesting="interesting.otherInteresting"
-      />
+      <ShopInteresting :interesting="interesting" />
     </div>
     <div class="wrapper-default wrapper-shop-about">
       <ShopAbout />
@@ -263,7 +260,7 @@ export default {
         },
       ],
       interesting: {
-        interestingMain: {
+        main: {
           text: {
             main: "Интересная информация",
             name: "Аэронавтика Империалис: введение в игру",
@@ -274,7 +271,7 @@ export default {
           },
           url: "",
         },
-        otherInteresting: [
+        other: [
           {
             id: 1,
             text: {

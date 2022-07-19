@@ -1,9 +1,9 @@
 <template>
   <div class="home-slider">
-    <VueSlickCarousel class="slider" v-bind="settings">
+    <VueSlickCarousel class="slider" v-bind="slider.settings">
       <div
         class="slide"
-        v-for="slide in slides"
+        v-for="slide in slider.slides"
         :key="slide.id"
         :style="slide.style"
       >
@@ -32,49 +32,51 @@ export default {
   },
   data() {
     return {
-      slides: [
-        {
-          id: 1,
-          mainText: "Magic: the Gathering",
-          subText: "Самая популярная карточная игра",
-          url: "",
-          style: {
-            background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-          },
+      slider: {
+        settings: {
+          dots: true,
+          infinite: true,
+          centerPadding: "0px",
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: true,
+          centerMode: true,
+          responsive: [
+            {
+              breakpoint: 1023,
+              settings: {
+                variableWidth: false,
+                centerMode: false,
+              },
+            },
+          ],
         },
-        {
-          id: 2,
-          mainText: "Magic: the Gathering",
-          subText: "Самая популярная карточная игра",
-          url: "",
-          style: {
-            background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-          },
-        },
-        {
-          id: 3,
-          mainText: "Magic: the Gathering",
-          subText: "Самая популярная карточная игра",
-          url: "",
-          style: {
-            background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-          },
-        },
-      ],
-      settings: {
-        dots: true,
-        infinite: true,
-        centerPadding: "0px",
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: true,
-        centerMode: true,
-        responsive: [
+        slides: [
           {
-            breakpoint: 1023,
-            settings: {
-              variableWidth: false,
-              centerMode: false,
+            id: 1,
+            mainText: "Magic: the Gathering",
+            subText: "Самая популярная карточная игра",
+            url: "",
+            style: {
+              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
+            },
+          },
+          {
+            id: 2,
+            mainText: "Magic: the Gathering",
+            subText: "Самая популярная карточная игра",
+            url: "",
+            style: {
+              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
+            },
+          },
+          {
+            id: 3,
+            mainText: "Magic: the Gathering",
+            subText: "Самая популярная карточная игра",
+            url: "",
+            style: {
+              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
             },
           },
         ],

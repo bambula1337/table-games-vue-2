@@ -1,6 +1,6 @@
 <template>
-  <div class="special-wrapper">
-    <div class="special">
+  <div class="special">
+    <div class="special-main">
       <p class="main-text">
         {{ mainText }}
       </p>
@@ -33,20 +33,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.special-wrapper {
-  @apply w-full flex flex-col items-center;
-}
 .special {
-  @apply flex flex-col font-trebuchet;
-  @apply ML:mb-5;
-  @apply TS:mb-10;
-  @apply TM:max-w-6xl;
-  & .main-text {
-    @apply text-xl font-bold -mb-6 px-5 z-10;
-    @apply TS:text-3xl;
-  }
-  & .slider-wrapper {
-    @apply TL:w-%101.5 TL:-ml-3.5;
+  @apply w-full flex flex-col items-center;
+  & .special-main {
+    @apply flex flex-col font-trebuchet;
+    @apply ML:mb-5;
+    @apply TS:mb-10;
+    @apply TM:max-w-6xl;
+    & .main-text {
+      @apply text-xl font-bold -mb-6 px-5 z-10;
+      @apply TS:text-3xl;
+    }
+    & .slider-wrapper {
+      @apply TL:w-%101.5 TL:-ml-3.5;
+    }
   }
 }
 </style>

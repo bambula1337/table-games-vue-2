@@ -1,6 +1,6 @@
 <template>
-  <div class="slider-default-wrapper">
-    <div class="slider-default">
+  <div class="slider-default">
+    <div class="slider-default-main">
       <div class="navigation-prev" @click="prev">
         <svg
           width="8"
@@ -16,7 +16,11 @@
         </svg>
       </div>
       <div class="slider-wrapper">
-        <VueSlickCarousel class="slider" v-bind="settings" ref="carousel">
+        <VueSlickCarousel
+          class="slider"
+          v-bind="slider.settings"
+          ref="carousel"
+        >
           <div class="slide-wrapper" v-for="slide in slides" :key="slide.id">
             <ShopDefaultSliderCard :card="slide" />
           </div>
@@ -56,36 +60,38 @@ export default {
   },
   data() {
     return {
-      settings: {
-        dots: false,
-        arrows: true,
-        infinite: true,
-        centerPadding: "0px",
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 1279,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
+      slider: {
+        settings: {
+          dots: false,
+          arrows: true,
+          infinite: true,
+          centerPadding: "0px",
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1279,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
             },
-          },
-          {
-            breakpoint: 1023,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
+            {
+              breakpoint: 1023,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
             },
-          },
-          {
-            breakpoint: 639,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
+            {
+              breakpoint: 639,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
             },
-          },
-        ],
+          ],
+        },
       },
     };
   },
@@ -107,26 +113,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slider-default-wrapper {
-  @apply w-full flex justify-center;
-}
 .slider-default {
-  @apply flex items-center font-trebuchet;
-  @apply TM:relative;
-  & .navigation-prev {
-    @apply w-10 h-10 absolute flex justify-center items-center rotate-z-180 z-10;
-    @apply TM:-left-7;
-  }
-  & .slider {
-    @apply grid;
-    & .slide-wrapper {
-      @apply flex justify-center;
-      display: flex !important;
+  @apply w-full flex justify-center;
+  & .slider-default-main {
+    @apply flex items-center font-trebuchet;
+    @apply TM:relative;
+    & .navigation-prev {
+      @apply w-10 h-10 absolute flex justify-center items-center rotate-z-180 z-10;
+      @apply TM:-left-7;
     }
-  }
-  & .navigation-next {
-    @apply w-10 h-10 absolute right-0 flex justify-center items-center z-10;
-    @apply TM:-right-7;
+    & .slider {
+      @apply grid;
+      & .slide-wrapper {
+        @apply flex justify-center;
+        display: flex !important;
+      }
+    }
+    & .navigation-next {
+      @apply w-10 h-10 absolute right-0 flex justify-center items-center z-10;
+      @apply TM:-right-7;
+    }
   }
 }
 </style>

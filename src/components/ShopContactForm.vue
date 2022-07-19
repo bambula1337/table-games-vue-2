@@ -61,7 +61,7 @@ export default {
         @apply mb-1;
       }
       & .input {
-        @apply w-full h-11 border-project-gray px-5 rounded-project-default outline-none transition-colors duration-300;
+        @apply w-full h-11 border-1 border-project-gray px-5 rounded-project-default outline-none transition-colors duration-300;
         &:focus {
           @apply border-black;
         }
