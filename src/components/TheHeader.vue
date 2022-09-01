@@ -9,11 +9,11 @@
         <span class="opener"></span>
       </div>
       <transition name="menu">
-        <div class="mobile-menu" v-if="isMobileMenuOpened">
-          <div class="categories" ref="categories">
+        <div v-if="isMobileMenuOpened" class="mobile-menu">
+          <div ref="categories" class="categories">
             <details
-              id="category"
               v-for="category in categories"
+              id="category"
               :key="category.id"
             >
               <summary class="category-summary" @click.prevent="categoryOpener">
@@ -32,9 +32,9 @@
               </summary>
               <div class="sub-categories">
                 <div
-                  class="sub-category"
                   v-for="subCategory in category.subCategories"
                   :key="subCategory.id"
+                  class="sub-category"
                 >
                   {{ subCategory.name }}
                 </div>
@@ -152,18 +152,18 @@
           <span class="opener"></span>
         </div>
         <div class="links-wrapper">
-          <p class="link" v-for="link in catalog.links" :key="link.id">
+          <p v-for="link in catalog.links" :key="link.id" class="link">
             {{ link.name }}
           </p>
         </div>
         <div class="icons-wrapper">
-          <div class="icon" v-for="icon in catalog.icons" :key="icon.id">
+          <div v-for="icon in catalog.icons" :key="icon.id" class="icon">
             <img :src="srcFixer(icon.img.url)" alt="" class="icon-img" />
           </div>
         </div>
       </div>
       <transition name="category-menu">
-        <div class="catalog-menu" v-show="isMenuOpened">
+        <div v-show="isMenuOpened" class="catalog-menu">
           <div class="catalog-menu-main">
             <div class="left">
               <div class="top">
@@ -174,13 +174,13 @@
               </div>
               <div class="bottom">
                 <div
+                  v-for="category in categories"
+                  :key="category.key"
                   class="category"
                   :class="{
                     'category-selected':
                       category.subCategories == categoriesSelected.categories,
                   }"
-                  v-for="category in categories"
-                  :key="category.key"
                   @click="
                     subCategoryOpener(category.name, category.subCategories)
                   "
@@ -216,9 +216,9 @@
             </p>
             <transition-group name="categories-selected" class="right">
               <p
-                class="sub-category"
                 v-for="subCategory in categoriesSelected.categories"
                 :key="subCategory.id"
+                class="sub-category"
               >
                 {{ subCategory.name }}({{ subCategory.number }})
               </p>
@@ -772,7 +772,7 @@ export default {
         category.open = true;
       }
     },
-    mobileMenuOpener: function () {
+    mobileMenuOpener() {
       window.scrollTo(0, 0);
       this.isMobileMenuOpened = !this.isMobileMenuOpened;
       this.isMobileMenuOpened
@@ -782,7 +782,7 @@ export default {
     srcFixer(src) {
       return require(`@/assets/${src}`);
     },
-    subCategoryOpener: function (name, subCategory) {
+    subCategoryOpener(name, subCategory) {
       this.categoriesSelected.isSelected = true;
       this.categoriesSelected.name = name;
       this.categoriesSelected.categories = subCategory;
@@ -804,6 +804,7 @@ export default {
       @apply w-full h-18 absolute left-0 top-0 bg-project-black -z-1;
       content: "";
     }
+
     & .mobile-menu-opener-wrapper {
       @apply w-px-18 h-4 absolute cursor-pointer;
       @apply TS:w-5;
@@ -814,12 +815,14 @@ export default {
         height: 2.25px;
         transform: translateY(1px);
       }
+
       & .opener {
         @apply w-full absolute bg-white transition-all duration-300;
         content: "";
         height: 2.25px;
         transform: translateY(6.5px);
       }
+
       &::after {
         @apply w-full absolute bg-white transition-all duration-300;
         content: "";
@@ -827,6 +830,7 @@ export default {
         transform: translateY(12px);
       }
     }
+
     & .mobile-menu {
       @apply w-67 h-128 absolute top-18 left-0 bg-white pt-5 pb-7 overflow-y-scroll z-10;
 
@@ -844,6 +848,7 @@ export default {
               }
             }
           }
+
           &:not([open]) {
             & .category-summary:hover {
               & .arrow {
@@ -851,28 +856,33 @@ export default {
               }
             }
           }
+
           & .category-summary {
             @apply w-full h-11 flex items-center px-8 transition-colors duration-300;
             &::before {
               @apply w-full h-11 absolute right-full  bg-project-orange transition-transform duration-300;
               content: "";
             }
+
             & .summary-text {
               @apply flex flex-col items-start select-none cursor-pointer z-10;
               &::after {
                 @apply w-0 border-t-2 border-black transition-all duration-300;
                 content: "";
               }
+
               &:hover {
                 &::after {
                   @apply LS:w-%25;
                 }
               }
             }
+
             & .arrow {
               @apply absolute right-8 opacity-30 mt-1 cursor-pointer transition-opacity duration-300;
             }
           }
+
           & .sub-categories {
             @apply ml-12 my-5 cursor-pointer;
             & .sub-category {
@@ -885,12 +895,14 @@ export default {
           }
         }
       }
+
       & .links-wrapper {
         @apply h-36 flex flex-col justify-between px-8;
         &::before {
           @apply w-full h-0.5 absolute bg-project-gray -ml-8 -mt-8;
           content: "";
         }
+
         & .link {
           @apply self-start flex flex-col items-start select-none cursor-pointer;
 
@@ -898,6 +910,7 @@ export default {
             @apply w-0 border-t-2 border-black transition-all duration-300;
             content: "";
           }
+
           &:hover {
             &::after {
               @apply LS:w-1/2;
@@ -906,6 +919,7 @@ export default {
         }
       }
     }
+
     & .search-wrapper {
       @apply w-%40 h-14 relative hidden justify-center items-center bg-project-creamy -ml-5 px-5;
       @apply TM:flex;
@@ -914,24 +928,29 @@ export default {
       & .search-input {
         @apply w-full h-8.5 rounded-project-default border-1 border-white px-3 pr-9 outline-none z-10;
       }
+
       & .search-icon-wrapper {
         @apply absolute right-8  z-10;
       }
     }
+
     & .number-wrapper {
       @apply hidden justify-between -ml-10 cursor-pointer transition-opacity duration-300;
       @apply TM:flex;
       &:hover {
         @apply opacity-70;
       }
+
       & .icon {
         @apply w-6 mr-2;
         @apply TL:w-px-26;
       }
+
       & .number {
         @apply text-lg font-bold text-white;
       }
     }
+
     & .logo-wrapper {
       @apply w-30 ml-20 cursor-pointer transition-opacity duration-300;
       @apply MM:w-full MM:flex MM:justify-center MM:ml-10;
@@ -940,12 +959,14 @@ export default {
       &:hover {
         @apply opacity-70;
       }
+
       & .logo {
         @apply w-30;
         @apply TS:w-32;
         @apply TL:w-40;
       }
     }
+
     & .icons-wrapper {
       @apply w-14 flex justify-between -mt-0.5;
       & .user-icon-wrapper {
@@ -957,22 +978,26 @@ export default {
           @apply LS:opacity-70;
         }
       }
+
       & .basket-icon-wrapper {
         @apply w-5 relative cursor-pointer transition-opacity duration-300;
         @apply TS:w-6;
         @apply TL:w-7;
         &::before {
-          @apply w-2.5 h-2.5 absolute -right-0.5 flex justify-center items-center rounded-full bg-project-orange font-bold text-white -mt-1;
+          @apply w-2.5 h-2.5 absolute -right-0.5 flex justify-center items-center rounded-full;
+          @apply bg-project-orange font-bold text-white -mt-1;
           font-size: 8px;
           content: "1";
           @apply TL:w-3 TL:h-3 TL:-right-1;
         }
+
         &:hover {
           @apply LS:opacity-70;
         }
       }
     }
   }
+
   & .search-for-mobile {
     @apply w-full h-14 relative flex justify-center items-center bg-project-creamy px-5;
     @apply TM:hidden;
@@ -980,10 +1005,12 @@ export default {
     & .search-input {
       @apply w-full h-9.5 rounded-project-default border-1 border-white px-3 pr-9 outline-none z-10;
     }
+
     & .search-icon-wrapper {
       @apply absolute right-8 z-10;
     }
   }
+
   & .catalog-for-pc {
     @apply w-full h-13 hidden;
     @apply TM:flex;
@@ -1002,17 +1029,20 @@ export default {
           content: "";
           transform: translateY(1px);
         }
+
         & .opener {
           @apply w-full h-0.5 absolute bg-black transition-all duration-300;
           content: "";
           transform: translateY(6.5px);
         }
+
         &::after {
           @apply w-full h-0.5 absolute bg-black transition-all duration-300;
           content: "";
           transform: translateY(12px);
         }
       }
+
       & .links-wrapper {
         @apply flex self-center ml-7;
         & .link {
@@ -1023,6 +1053,7 @@ export default {
           }
         }
       }
+
       & .icons-wrapper {
         @apply w-24 flex justify-between items-center;
         @apply TL:absolute TL:right-5;
@@ -1036,6 +1067,7 @@ export default {
         }
       }
     }
+
     & .catalog-menu {
       @apply w-full absolute left-0 top-18 flex justify-center text-black z-20;
 
@@ -1046,6 +1078,7 @@ export default {
           & .top {
             @apply flex items-center justify-start border-b-2 border-project-gray pl-7;
             height: 46px !important;
+
             & .catalog-closer {
               @apply w-4 h-3.5 absolute -mt-1 cursor-pointer z-20;
               @apply TM:block;
@@ -1054,11 +1087,13 @@ export default {
                 content: "";
                 transform: translateY(6.5px) rotate(45deg);
               }
+
               &::after {
                 @apply w-full h-0.5 absolute rounded-full bg-black transition-all duration-300;
                 content: "";
                 transform: translateY(6.5px) rotate(-45deg);
               }
+
               &:hover {
                 &::before,
                 &::after {
@@ -1066,6 +1101,7 @@ export default {
                 }
               }
             }
+
             & .text {
               @apply flex flex-col items-start ml-7 cursor-pointer select-none;
 
@@ -1073,6 +1109,7 @@ export default {
                 @apply w-0 border-t-2 border-black transition-all duration-300;
                 content: "";
               }
+
               &:hover {
                 &::after {
                   @apply LS:w-%30;
@@ -1080,6 +1117,7 @@ export default {
               }
             }
           }
+
           & .bottom {
             @apply mb-11;
             & .category {
@@ -1089,30 +1127,36 @@ export default {
                 content: "";
                 height: 46px;
               }
+
               & .name {
                 @apply w-full relative flex flex-col justify-center items-start select-none pl-7;
                 height: 46px;
               }
+
               & .arrow {
                 @apply opacity-30 -ml-5 transition-opacity duration-300 z-10;
               }
             }
           }
         }
+
         & .categories-selected-name {
-          @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 select-none cursor-pointer transition-all duration-700;
+          @apply absolute left-69 top-5 flex flex-col items-start text-xl font-bold opacity-0 select-none;
+          @apply cursor-pointer transition-all duration-700;
 
           &::after {
             @apply w-0 border-t-2 border-black transition-all duration-300;
             content: "";
             border-top: 2px black solid;
           }
+
           &:hover {
             &::after {
               @apply LS:w-%30;
             }
           }
         }
+
         & .right {
           @apply max-w-6xl flex flex-col flex-wrap mt-14 -ml-20 pr-14 pt-2;
           height: 250px;
@@ -1121,6 +1165,7 @@ export default {
           & .sub-category {
             @apply ml-10 mb-0 cursor-pointer transition-opacity duration-300;
             flex: 0 1 40px;
+
             &:hover {
               @apply opacity-50;
             }
@@ -1129,9 +1174,11 @@ export default {
       }
     }
   }
+
   & .overlay {
     @apply w-screen h-screen fixed top-0 left-full bg-black opacity-0 transition-opacity duration-300 z-10;
   }
+
   & .pc-overlay {
     @apply h-screen fixed top-0 bg-black opacity-0 transition-opacity duration-300 z-10;
     width: 100vw;
@@ -1144,6 +1191,7 @@ export default {
   &::before {
     transform: translateX(100%);
   }
+
   & .arrow {
     opacity: 1 !important;
   }
@@ -1153,6 +1201,7 @@ export default {
 .categories-selected-leave-active {
   transition: all 1s;
 }
+
 .categories-selected-enter,
 .categories-selected-leave-to {
   opacity: 0;
@@ -1162,6 +1211,7 @@ export default {
 .category-menu-leave-active {
   transition: all 1s;
 }
+
 .category-menu-enter,
 .category-menu-leave-to {
   transform: translateY(-120%) !important;
@@ -1183,23 +1233,28 @@ export default {
     transform: translateY(6.5px) rotate(45deg) !important;
     background-color: rgba(249, 164, 63) !important;
   }
+
   & .opener {
     transform: translateY(6.5px) scale(0) !important;
   }
+
   &::after {
     @apply rounded-full;
     transform: translateY(6.5px) rotate(-45deg) !important;
     background-color: rgba(249, 164, 63) !important;
   }
 }
+
 .menu-opened-for-overlay {
   transform: translateX(-100%);
   opacity: 0.3 !important;
 }
+
 .menu-enter,
 .menu-leave-to {
   transform: translateX(-100%);
 }
+
 .menu-enter-active,
 .menu-leave-active {
   @apply transition-all duration-300;

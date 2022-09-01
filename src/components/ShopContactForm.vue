@@ -9,8 +9,8 @@
       <div class="input-wrapper">
         <p class="input-text">Ваш телефон</p>
         <input
-          type="tel"
           v-mask="['+7 ### #######']"
+          type="tel"
           class="input"
           placeholder="+7 ___ _______"
         />

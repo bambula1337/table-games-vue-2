@@ -67,20 +67,20 @@ export default {
           infinite: true,
           centerPadding: "0px",
           slidesToShow: 4,
-          slidesToScroll: 1,
+          slidesToScroll: 4,
           responsive: [
             {
               breakpoint: 1279,
               settings: {
                 slidesToShow: 3,
-                slidesToScroll: 1,
+                slidesToScroll: 3,
               },
             },
             {
               breakpoint: 1023,
               settings: {
                 slidesToShow: 2,
-                slidesToScroll: 1,
+                slidesToScroll: 2,
               },
             },
             {
@@ -102,10 +102,10 @@ export default {
     },
   },
   methods: {
-    prev: function () {
+    prev() {
       this.$refs.carousel.prev();
     },
-    next: function () {
+    next() {
       this.$refs.carousel.next();
     },
   },

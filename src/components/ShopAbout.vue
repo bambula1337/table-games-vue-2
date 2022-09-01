@@ -34,7 +34,7 @@
 export default {
   name: "ShopAbout",
   methods: {
-    srcFixer: function (src) {
+    srcFixer(src) {
       return require(`@/assets/${src}`);
     },
   },

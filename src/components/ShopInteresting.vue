@@ -5,7 +5,12 @@
         {{ interesting.main.text.main }}
       </p>
       <div class="cards">
-        <div class="card" :style="interesting.main.style">
+        <div
+          class="card"
+          :style="{
+            background: `url(${srcFixer(interesting.main.style.background)})`,
+          }"
+        >
           <div class="text-wrapper">
             <p class="name">
               {{ interesting.main.text.name }}
@@ -19,7 +24,9 @@
           class="card card-pc"
           v-for="card in interesting.other"
           :key="card.id"
-          :style="card.style"
+          :style="{
+            background: `url(${srcFixer(card.style.background)})`,
+          }"
         >
           <div class="text-wrapper">
             <p class="name">

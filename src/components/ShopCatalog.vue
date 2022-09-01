@@ -3,7 +3,12 @@
     <div class="catalog-main">
       <p class="main-text">Каталог</p>
       <div class="categories">
-        <div class="main-category" :style="categories.main.style">
+        <div
+          class="main-category"
+          :style="{
+            background: `url(${srcFixer(categories.main.style.background)})`,
+          }"
+        >
           <p class="main-category-name">
             {{ categories.main.name }}
           </p>
@@ -13,18 +18,27 @@
             class="category"
             v-for="category in categories.other"
             :key="category.id"
-            :style="category.style"
+            :style="{
+              background: `url(${srcFixer(category.style.background)})`,
+            }"
           >
             <p class="category-name">
               {{ category.name }}
             </p>
           </div>
-          <div class="category catalog-pc" :style="catalog.style">
-            <p class="category-name">{{ catalog.text }}</p>
+          <div
+            class="category catalog-pc"
+            :style="{
+              background: `url(${srcFixer(
+                categories.catalog.style.background
+              )})`,
+            }"
+          >
+            <p class="category-name">{{ categories.catalog.text }}</p>
           </div>
           <div class="all-catalog">
             <button-orange-default>
-              <p class="catalog-text">{{ catalog.text }}</p>
+              <p class="catalog-text">{{ categories.catalog.text }}</p>
             </button-orange-default>
           </div>
         </div>
@@ -36,46 +50,11 @@
 <script>
 export default {
   name: "ShopCatalog",
-  data() {
-    return {
-      categories: {
-        main: {
-          name: "Настольные игры",
-          style: {
-            background: `url(${require("@/assets/images/catalog/categories_main.jpg")})`,
-          },
-        },
-        other: [
-          {
-            id: 1,
-            name: "Варгеймы",
-            style: {
-              background: `url(${require("@/assets/images/catalog/categories_1.jpg")})`,
-            },
-          },
-          {
-            id: 2,
-            name: "Magic:the Cathering",
-            style: {
-              background: `url(${require("@/assets/images/catalog/categories_2.jpg")})`,
-            },
-          },
-          {
-            id: 3,
-            name: "Краски",
-            style: {
-              background: `url(${require("@/assets/images/catalog/categories_3.jpg")})`,
-            },
-          },
-        ],
-      },
-      catalog: {
-        text: "Весь каталог",
-        style: {
-          background: `url(${require("@/assets/images/catalog/catalog.jpg")})`,
-        },
-      },
-    };
+  props: {
+    categories: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>

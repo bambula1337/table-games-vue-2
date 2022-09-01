@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 const plugin = require("tailwindcss/plugin");
 
-const rotateZ = plugin(function ({ addUtilities }) {
+const rotateZ = plugin(({ addUtilities }) => {
   addUtilities({
     ".rotate-z-45": {
       transform: "rotateZ(45deg)",
@@ -956,7 +956,7 @@ module.exports = {
       "3/2": "150%",
       1.3: "130%",
       full: "100%",
-      screen: "100vw",
+      screen: "99.45vw",
       min: "min-content",
       max: "max-content",
     }),

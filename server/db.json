@@ -1,0 +1,449 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "mainText": "Magic: the Gathering",
+      "subText": "Самая популярная карточная игра",
+      "url": "",
+      "style": {
+        "background": "/images/home-slider/slide_1.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "mainText": "Magic: the Gathering",
+      "subText": "Самая популярная карточная игра",
+      "url": "",
+      "style": {
+        "background": "/images/home-slider/slide_1.jpg"
+      }
+    },
+    {
+      "id": 3,
+      "mainText": "Magic: the Gathering",
+      "subText": "Самая популярная карточная игра",
+      "url": "",
+      "style": {
+        "background": "/images/home-slider/slide_1.jpg"
+      }
+    }
+  ],
+  "categories": {
+    "main": {
+      "name": "Настольные игры",
+      "style": {
+        "background": "/images/catalog/categories_main.jpg"
+      }
+    },
+    "other": [
+      {
+        "id": 1,
+        "name": "Варгеймы",
+        "style": {
+          "background": "/images/catalog/categories_1.jpg"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Magic:the Cathering",
+        "style": {
+          "background": "/images/catalog/categories_2.jpg"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Краски",
+        "style": {
+          "background": "/images/catalog/categories_3.jpg"
+        }
+      }
+    ],
+    "catalog": {
+      "text": "Весь каталог",
+      "style": {
+        "background": "/images/catalog/catalog.jpg"
+      }
+    }
+  },
+  "sliders": [
+    {
+      "id": 1,
+      "text": "Успей купить",
+      "slides": [
+        {
+          "id": 1,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 2,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 3,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 4,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 5,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 6,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 7,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 8,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Специальное предложение",
+      "slides": [
+        {
+          "id": 1,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 2,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 3,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 4,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 5,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 6,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 7,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        },
+        {
+          "id": 8,
+          "mainUrl": "",
+          "name": "Warhammer 40,000: Chaos Space Marines",
+          "img": {
+            "url": "images/special/slide_1.png"
+          },
+          "limits": {
+            "players": "2-4",
+            "time": "30-60",
+            "age": "18+"
+          },
+          "price": {
+            "old": 4350,
+            "new": 3657
+          }
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "name": "Halloween c GoldFish",
+      "img": "",
+      "time": "31 октября 2021 г. 19:00",
+      "description": "Мы соберемся,чтобы узнать,кто же все-таки был Мафией и что будет с тем,кого убили..",
+      "style": {
+        "background": "/images/show/card_1.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Halloween c GoldFish",
+      "img": "",
+      "time": "31 октября 2021 г. 19:00",
+      "description": "Мы соберемся,чтобы узнать,кто же все-таки был Мафией и что будет с тем,кого убили..",
+      "style": {
+        "background": "/images/show/card_1.jpg"
+      }
+    }
+  ],
+  "interesting": {
+    "main": {
+      "text": {
+        "main": "Интересная информация",
+        "name": "Аэронавтика Империалис: введение в игру",
+        "description": "Детально ознакомимся с правилами игры"
+      },
+      "style": {
+        "background": "/images/interesting/interesting_1.jpg"
+      },
+      "url": ""
+    },
+    "other": [
+      {
+        "id": 1,
+        "text": {
+          "main": "Интересная информация",
+          "name": "Аэронавтика Империалис: введение в игру",
+          "description": "Детально ознакомимся с правилами игры"
+        },
+        "style": {
+          "background": "/images/interesting/interesting_1.jpg"
+        },
+        "url": ""
+      },
+      {
+        "id": 2,
+        "text": {
+          "main": "Интересная информация",
+          "name": "Аэронавтика Империалис: введение в игру",
+          "description": "Детально ознакомимся с правилами игры"
+        },
+        "style": {
+          "background": "/images/interesting/interesting_1.jpg"
+        },
+        "url": ""
+      }
+    ]
+  },
+  "contacts": [
+    {
+      "id": 1,
+      "logo": "/images/contact/icon_phone.svg",
+      "text": {
+        "main": "Телефон:",
+        "sub": "+7 (495) 911-10-11"
+      }
+    },
+    {
+      "id": 2,
+      "logo": "/images/contact/icon_mail.svg",
+      "text": {
+        "main": "E-mail:",
+        "sub": "msk@magicgoldfish.ru"
+      }
+    },
+    {
+      "id": 3,
+      "logo": "/images/contact/icon_location.svg",
+      "text": {
+        "main": "Адрес:",
+        "sub": "г. Москва ст.м. Таганская Малый Дровяной переулок 6"
+      }
+    },
+    {
+      "id": 4,
+      "logo": "/images/contact/icon_schedule.svg",
+      "text": {
+        "main": "Режим работы клуба:",
+        "sub": "11:00-23:00 (ежедневно)"
+      }
+    }
+  ]
+}

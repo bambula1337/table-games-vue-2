@@ -1,11 +1,18 @@
 <template>
   <div class="home-slider">
-    <VueSlickCarousel class="slider" v-bind="slider.settings">
+    <VueSlickCarousel
+      v-if="slides.length"
+      class="slider"
+      v-bind="slider.settings"
+      ref="carousel"
+    >
       <div
         class="slide"
-        v-for="slide in slider.slides"
+        v-for="slide in slides"
         :key="slide.id"
-        :style="slide.style"
+        :style="{
+          background: `url(${srcFixer(slide.style.background)})`,
+        }"
       >
         <div class="text-wrapper">
           <p class="main-text">{{ slide.mainText }}</p>
@@ -30,6 +37,12 @@ export default {
   components: {
     VueSlickCarousel,
   },
+  props: {
+    slides: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       slider: {
@@ -51,35 +64,6 @@ export default {
             },
           ],
         },
-        slides: [
-          {
-            id: 1,
-            mainText: "Magic: the Gathering",
-            subText: "Самая популярная карточная игра",
-            url: "",
-            style: {
-              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-            },
-          },
-          {
-            id: 2,
-            mainText: "Magic: the Gathering",
-            subText: "Самая популярная карточная игра",
-            url: "",
-            style: {
-              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-            },
-          },
-          {
-            id: 3,
-            mainText: "Magic: the Gathering",
-            subText: "Самая популярная карточная игра",
-            url: "",
-            style: {
-              background: `url(${require("@/assets/images/home-slider/slide_1.jpg")})`,
-            },
-          },
-        ],
       },
     };
   },
@@ -131,10 +115,12 @@ export default {
             @apply text-3xl;
           }
         }
+
         & .sub-text {
           @apply text-sm;
         }
       }
+
       & .detail {
         @apply flex justify-center items-center h-8;
       }

@@ -108,21 +108,21 @@ export default {
     card: Object,
   },
   methods: {
-    srcFixer: function (src) {
+    srcFixer(src) {
       return require(`@/assets/${src}`);
     },
   },
   computed: {
-    sale: function () {
+    sale() {
       let sale = String;
       if (
         this.card.price.old &&
         this.card.price.old != 0 &&
         this.card.price.old > this.card.price.new
       ) {
-        sale =
-          Math.round(100 - (this.card.price.new / this.card.price.old) * 100) +
-          "%";
+        sale = `${Math.round(
+          100 - (this.card.price.new / this.card.price.old) * 100
+        )}%`;
       } else {
         sale = false;
       }

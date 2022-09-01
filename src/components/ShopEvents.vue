@@ -9,7 +9,9 @@
           class="card"
           v-for="card in cards"
           :key="card.id"
-          :style="card.style"
+          :style="{
+            background: `url(${srcFixer(card.style.background)})`,
+          }"
         >
           <div class="text-wrapper">
             <div class="top-content">

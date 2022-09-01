@@ -38,47 +38,10 @@ export default {
   components: {
     ShopContactForm,
   },
-  data() {
-    return {
-      contacts: [
-        {
-          id: 1,
-          logo: "images/contact/icon_phone.svg",
-          text: {
-            main: "Телефон:",
-            sub: "+7 (495) 911-10-11",
-          },
-        },
-        {
-          id: 2,
-          logo: "images/contact/icon_mail.svg",
-          text: {
-            main: "E-mail:",
-            sub: "msk@magicgoldfish.ru",
-          },
-        },
-        {
-          id: 3,
-          logo: "images/contact/icon_location.svg",
-          text: {
-            main: "Адрес:",
-            sub: "г. Москва ст.м. Таганская Малый Дровяной переулок 6",
-          },
-        },
-        {
-          id: 4,
-          logo: "images/contact/icon_schedule.svg",
-          text: {
-            main: "Режим работы клуба:",
-            sub: "11:00-23:00 (ежедневно)",
-          },
-        },
-      ],
-    };
-  },
-  methods: {
-    srcFixer: function (src) {
-      return require(`@/assets/${src}`);
+  props: {
+    contacts: {
+      type: Array,
+      required: true,
     },
   },
 };
