@@ -77,6 +77,9 @@
           <p class="privacy privacy-right">
             Содержимое не является публичной офертой
             <span class="link">Пользовательское соглашение</span>
+            <router-link to="catalog">CATALOG</router-link>
+            <router-link to="/" exact>HOME</router-link>
+            <router-link to="error" exact>ERROR</router-link>
           </p>
         </div>
       </div>

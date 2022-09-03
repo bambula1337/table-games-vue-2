@@ -6,12 +6,14 @@
     <div class="wrapper-default wrapper-shop-catalog">
       <ShopCatalog :categories="categories" />
     </div>
-    <div
-      class="wrapper-default wrapper-shop-special"
-      v-for="slider in sliders"
-      :key="slider.id"
-    >
-      <ShopSpecial :mainText="slider.text" :slides="slider.slides" />
+    <div class="wrapper-default">
+      <div
+        class="wrapper-shop-special"
+        v-for="slider in sliders"
+        :key="slider.id"
+      >
+        <ShopSpecial :mainText="slider.text" :slides="slider.slides" />
+      </div>
     </div>
     <div class="wrapper-default wrapper-shop-events">
       <ShopEvents :cards="cards" />
@@ -69,6 +71,33 @@ export default {
       this.getInteresting();
       this.getContacts();
     },
+    lazyLoad: async function () {
+      window.addEventListener(
+        "load",
+        () => {
+          if ("IntersectionObserver" in window) {
+            this.loadData();
+            const components = this.$el.querySelectorAll(".wrapper-default");
+            const observer = new IntersectionObserver(
+              function (entries) {
+                for (let entry of entries) {
+                  if (!entry.isIntersecting) return;
+                  entry.target.classList.add("opacityFULL");
+                  observer.unobserve(entry.target);
+                }
+              },
+              {
+                threshold: "0",
+              }
+            );
+            components.forEach((component) => {
+              observer.observe(component);
+            });
+          }
+        },
+        false
+      );
+    },
   },
   computed: {
     ...mapState("home", {
@@ -81,7 +110,14 @@ export default {
     }),
   },
   created() {
-    this.loadData();
+    // this.loadData();
+  },
+  mounted() {
+    this.lazyLoad();
+    console.log("HomeView has been mounted");
+  },
+  beforeDestroy() {
+    console.log("HomeView has been destroyed");
   },
 };
 </script>
@@ -90,7 +126,7 @@ export default {
 .home {
   @apply w-screen overflow-hidden;
   & .wrapper-default {
-    @apply mb-5;
+    @apply w-full mb-5 transition-all duration-1000 opacity-50;
   }
 
   & .wrapper-shop-home-slider {
@@ -124,5 +160,8 @@ export default {
 
   & .wrapper-shop-contact {
   }
+}
+.opacityFULL {
+  opacity: 1 !important;
 }
 </style>

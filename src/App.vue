@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <TheHeader />
-    <div class="view">
-      <router-view />
-    </div>
-    <TheFooter />
+    <component :is="layout"> </component>
   </div>
 </template>
 
@@ -12,25 +8,29 @@
 // Tailwind SCSS Fi;e
 import "@/assets/styles/tailwind/tailwind.scss";
 
-// Components
-import TheHeader from "@/components/TheHeader.vue";
-import TheFooter from "@/components/TheFooter.vue";
+import DefaultLayout from "@/layouts/DefaultLayout";
+import ErrorLayout from "@/layouts/ErrorLayout";
 
 export default {
   name: "App",
   components: {
-    TheHeader,
-    TheFooter,
+    DefaultLayout,
+    ErrorLayout,
+  },
+  computed: {
+    layout: function () {
+      if (this.$route.meta.layout) {
+        return this.$route.meta.layout + "-layout";
+      } else {
+        return "default-layout";
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss">
 //Scroll Styles
-
-.view {
-  @apply min-h-screen;
-}
 
 ::-webkit-scrollbar {
   width: 0.6vw;

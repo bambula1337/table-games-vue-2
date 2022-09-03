@@ -16,6 +16,12 @@ export default {
     BannerComponent,
     DetailsComponent,
   },
+  mounted() {
+    console.log("CatalogView has been mounted");
+  },
+  beforeDestroy() {
+    console.log("CatalogView has been destroyed");
+  },
 };
 </script>
 
