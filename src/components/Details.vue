@@ -36,15 +36,23 @@ export default {
         height: 2.2px;
         @apply absolute left-0 bottom-0 w-full bg-gray-300;
       }
+      &[open] .summary::before {
+        transform: rotateZ(-90deg);
+      }
       & .summary {
         list-style: none;
-        @apply text-lg font-bold mb-3 bg-none select-none cursor-pointer;
+        @apply flex items-center relative text-lg font-bold mb-3 bg-none select-none cursor-pointer;
         &::-webkit-details-marker {
           display: none;
         }
+        &::before {
+          @apply absolute right-0 text-xl font-sans transition-transform duration-200;
+          -moz-transition-timing-function: cubic-bezier(0.14, 0.15, 0.9, 1.36);
+          content: "\00AB";
+        }
       }
       & .description {
-        @apply mb-4;
+        @apply mb-4 overflow-hidden;
 
         & .orange {
           @apply font-bold text-project-orange cursor-pointer;
